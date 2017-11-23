@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>  </h:head> 
+<body> 
+	<h1> crear propiedad</h1>
+	
+	<h:form>
+
+	<h:panelGrid  colums="3">
+	
+		<h:outputLabel value="direccion:"  for="direccion"/>
+		<h:inputText value="#{propiedadController.propiedad.direccion}" id="direccion" />
+		<h:message for="direccion"/>
+		
+		<h:outputLabel value="video:"  for="video"/>
+		<h:inputText value="#{propiedadController.propiedad.urlVideo}" id="video" />
+		<h:message for="video"/>
+		
+		<h:outputLabel value="descripcion"  for="descripcion"/>
+		<h:inputText value="#{propiedadController.propiedad.descripcion}" id="descripcion" />
+		<h:message for="descripcion"/>
+		
+		<h:outputLabel value="estado"  for="estado"/>
+		<h:inputText value="#{propiedadController.propiedad.estado}" id="estado" />
+		<h:message for="estado"/>
+		
+		<h:outputLabel value="tipo"  for="tipo"/>
+		<h:inputText value="#{propiedadController.propiedad.tipo}" id="tipo" />
+		<h:message for="tipo"/>
+		
+		<h:outputLabel value="costo"  for="costo"/>
+		<h:inputText value="#{propiedadController.propiedad.costo}" id="costo" />
+		<h:message for="costo"/>
+		
+		
+		<h:outputLabel value="latitud"  for="latitud"/>
+		<h:inputText value="#{propiedadController.propiedad.latitud}" id="latitud" />
+		<h:message for="latitud"/>
+		
+		<h:outputLabel value="longuitud"  for="longuitud"/>
+		<h:inputText value="#{propiedadController.propiedad.longuitud}" id="longuitud" />
+		<h:message for="longuitud"/>
+		
+		
+		
+		<h:commandButton action="#{propiedadController.guardar()}" value="guardar" />
+	
+		</h:panelGrid>
+		<br>
+		</br>
+		
+		<h:commandButton action="listarPropiedades" value="Listado" immediate="true"/>
+
+</h:form>
+
+
+
+</body> 
+</html>
