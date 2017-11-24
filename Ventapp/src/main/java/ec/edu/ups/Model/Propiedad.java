@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
+//import org.hibernate.validator.constraints.NotEmpty;
 
 
 
@@ -24,20 +24,20 @@ public class Propiedad {
 	@Size(min=1, max=50)
 	private String direccion;
 	
-	@NotEmpty
+	//@NotEmpty
 	private String urlVideo;
 	
 	@Size(min=1, max=50)
-	@NotEmpty
+	//@NotEmpty
 	private String descripcion;
 	
-	@NotEmpty
+	//@NotEmpty
 	private String estado;
 	
-	@NotEmpty
+	//@NotEmpty
 	private String tipo;
 	
-	@NotEmpty
+	//@NotEmpty
 	private String costo;
 	
 	private float longuitud;
