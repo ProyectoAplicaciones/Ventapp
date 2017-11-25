@@ -63,11 +63,6 @@ public class PropiedadController {
 
 	
 	
-	
-	
-	
-	
-	
 	public int getId() {
 		return id;
 	}
