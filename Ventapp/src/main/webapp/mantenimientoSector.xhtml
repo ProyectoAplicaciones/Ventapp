@@ -1,0 +1,80 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      			xmlns:ui="http://java.sun.com/jsf/facelets"
+      			xmlns:f="http://java.sun.com/jsf/core"
+      			xmlns:h="http://java.sun.com/jsf/html"
+				template="insertarPersona.xhtml">
+			
+		
+			
+			<ui:define name="titulo">MANTENIMIENTO DE SECTORES</ui:define>
+			<ui:define name="contenido">
+          <h:form  class="form-horizontal">
+            <div class="control-group">
+              <label class="control-label">Nombre :</label>
+              <div class="controls">
+                <h:inputText class="span11" value="#{sectorController.sector.nombre}" />
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Description :</label>
+              <div class="controls">
+              	<h:inputText class="span11" value="#{sectorController.sector.descripcion}" />
+              </div>
+            </div>
+            <div class="form-actions">
+			<h:commandButton class="btn btn-success" value="GUARDAR" action="#{sectorController.guardarSector()}"/>	
+            </div>
+            
+            <div class="widget-box">
+          <div class="widget-title">
+            <h5>SECTORES REGISTRADOS</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <h:dataTable class="table table-bordered table-striped" var="sec" value="#{sectorController.listSectores}" styleClass="employeeTable"
+					         headerClass="employeeTableHeader"
+					         rowClasses="employeeTableOddRow,employeeTableEvenRow"  width="100%" align="center">
+							<h:column>
+							<center>
+							<f:facet name="header">Codigo</f:facet>
+							#{sec.id}
+							</center>
+							</h:column>
+							
+							<h:column>
+							<center>
+							<f:facet name="header">Nombre</f:facet>
+							#{sec.nombre}
+							</center>
+							</h:column>
+							<h:column>
+							<center>
+							<f:facet name="header">DDescripcion</f:facet>
+							#{sec.descripcion}
+							</center>
+							</h:column>
+							<h:column>
+							<center>
+							<f:facet name="header">Editar</f:facet>
+							<h:commandButton class="btn btn-primary" value="Editar" action="#{sectorController.actualizarSector(sec.id)}"/>
+							</center>
+							</h:column>
+							<h:column>
+							<center>
+							<f:facet name="header">Eliminar</f:facet>
+							<h:commandButton value="Eliminar" class="btn btn-danger" action="#{sectorController.eliminarSector(sec.id)}"/>
+							</center>
+							</h:column>
+						</h:dataTable>
+			
+          </div>
+          
+        </div>
+            <div>
+        		<h:commandButton class="btn btn-info" value="SALIR" action="index.xhtml"/>
+        	</div>
+            
+          </h:form>
+			
+		</ui:define>
+</ui:composition>
+
