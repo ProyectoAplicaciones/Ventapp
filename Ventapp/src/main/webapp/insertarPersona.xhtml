@@ -3,19 +3,17 @@
       			   xmlns:ui="http://java.sun.com/jsf/facelets"
                    xmlns:f="http://java.sun.com/jsf/core"
                    xmlns:h="http://java.sun.com/jsf/html">
-<head>
+<h:head>
 <title>Matrix Admin</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
-<link rel="stylesheet" href="css/uniform.css" />
-<link rel="stylesheet" href="css/select2.css" />
-<link rel="stylesheet" href="css/matrix-style.css" />
-<link rel="stylesheet" href="css/matrix-media.css" />
-<link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'/>
-</head>
+<link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+<link rel="stylesheet" href="resources/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="resources/css/matrix-style.css" />
+<link rel="stylesheet" href="resources/css/matrix-media.css" />
+<link href="resources/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'></link>
+</h:head>
 <body>
 
 <!--Header-part-->
@@ -112,108 +110,26 @@
 </div>
 <div id="content">
   <div id="content-header">
-    <div id="breadcrumb"> <a href="index.xhtml" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#">Form elements</a> <a href="#" class="current">Validation</a> </div>
-    <h1>Form validation</h1>
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#">Form elements</a> <a href="#" class="current">insertarPersona</a> </div>
+    <h1><ui:insert name="titulo">Titulo</ui:insert></h1>
   </div>
   <div class="container-fluid">
     <div class="row-fluid">
       <div class="span12">
         <div class="widget-box">
-          <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
-            <h5>Form validation</h5>
+          <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
+            <h5>Form wizard &amp; validation</h5>
           </div>
           <div class="widget-content nopadding">
-            <form class="form-horizontal" method="post" action="#" name="basic_validate" id="basic_validate" novalidate="novalidate">
-              <div class="control-group">
-                <label class="control-label">Your Name</label>
-                <div class="controls">
-                  <input type="text" name="required" id="required"/>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">Your Email</label>
-                <div class="controls">
-                  <input type="text" name="email" id="email"/>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">Date (only Number)</label>
-                <div class="controls">
-                  <input type="text" name="date" id="date"/>
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">URL (Start with http://)</label>
-                <div class="controls">
-                  <input type="text" name="url" id="url"/>
-                </div>
-              </div>
-              <div class="form-actions">
-                <input type="submit" value="Validate" class="btn btn-success"/>
-              </div>
+            <form id="form-wizard" class="form-horizontal" method="post">
+              <div id="form-wizard-1" class="step">
+                 
+                <ui:insert name="contenido"></ui:insert>
+                
+                
+              </div>  
+              <div id="submitted"></div>
             </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div class="span12">
-        <div class="widget-box">
-          <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
-            <h5>Numeric validation</h5>
-          </div>
-          <div class="widget-content nopadding">
-            <form class="form-horizontal" method="post" action="#" name="number_validate" id="number_validate" novalidate="novalidate">
-              <div class="control-group">
-                <label class="control-label">Minimal Salary</label>
-                <div class="controls">
-                  <input type="text" name="min" id="min" />
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">Maximum Salary</label>
-                <div class="controls">
-                  <input type="text" name="max" id="max" />
-                </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label">Only digit</label>
-                <div class="controls">
-                  <input type="text" name="number" id="number" />
-                </div>
-              </div>
-              <div class="form-actions">
-                <input type="submit" value="Validate" class="btn btn-success"/>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="row-fluid">
-        <div class="span12">
-          <div class="widget-box">
-            <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
-              <h5>Security validation</h5>
-            </div>
-            <div class="widget-content nopadding">
-              <form class="form-horizontal" method="post" action="#" name="password_validate" id="password_validate" novalidate="novalidate">
-                <div class="control-group">
-                  <label class="control-label">Password</label>
-                  <div class="controls">
-                    <input type="password" name="pwd" id="pwd" />
-                  </div>
-                </div>
-                <div class="control-group">
-                  <label class="control-label">Confirm password</label>
-                  <div class="controls">
-                    <input type="password" name="pwd2" id="pwd2" />
-                  </div>
-                </div>
-                <div class="form-actions">
-                  <input type="submit" value="Validate" class="btn btn-success"/>
-                </div>
-              </form>
-            </div>
           </div>
         </div>
       </div>
@@ -225,13 +141,12 @@
   <div id="footer" class="span12"> 2013 &amp; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
 </div>
 <!--end-Footer-part-->
-<script src="js/jquery.min.js"></script> 
-<script src="js/jquery.ui.custom.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/jquery.uniform.js"></script> 
-<script src="js/select2.min.js"></script> 
-<script src="js/jquery.validate.js"></script> 
-<script src="js/matrix.js"></script> 
-<script src="js/matrix.form_validation.js"></script>
+<script src="resources/js/jquery.min.js"></script> 
+<script src="resources/js/jquery.ui.custom.js"></script> 
+<script src="resources/js/bootstrap.min.js"></script> 
+<script src="resources/js/jquery.validate.js"></script> 
+<script src="resources/js/jquery.wizard.js"></script> 
+<script src="resources/js/matrix.js"></script> 
+<script src="resources/js/matrix.wizard.js"></script>
 </body>
 </html>
