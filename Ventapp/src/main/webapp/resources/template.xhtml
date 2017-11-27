@@ -2,21 +2,24 @@
 <html lang="en"	   xmlns="http://www.w3.org/1999/xhtml"
       			   xmlns:ui="http://java.sun.com/jsf/facelets"
                    xmlns:f="http://java.sun.com/jsf/core"
-                   xmlns:h="http://java.sun.com/jsf/html"
-                   
-                   
-                   >
-<h:head>
-<title> Ventapp </title>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="resources/css/bootstrap.min.css" />
-<link rel="stylesheet" href="resources/css/bootstrap-responsive.min.css" />
-<link rel="stylesheet" href="resources/css/matrix-style.css" />
-<link rel="stylesheet" href="resources/css/matrix-media.css" />
-<link href="resources/font-awesome/css/font-awesome.css" rel="stylesheet" />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'></link>
-</h:head>
+                   xmlns:h="http://java.sun.com/jsf/html">
+<head>
+			<title>Matrix Admin</title>
+			<meta charset="UTF-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<link rel="stylesheet" href="css/bootstrap.min.css" />
+			<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+			<link rel="stylesheet" href="css/colorpicker.css" />
+			<link rel="stylesheet" href="css/datepicker.css" />
+			<link rel="stylesheet" href="css/uniform.css" />
+			<link rel="stylesheet" href="css/select2.css" />
+			<link rel="stylesheet" href="css/matrix-style.css" />
+			<link rel="stylesheet" href="css/matrix-media.css" />
+			<link rel="stylesheet" href="css/bootstrap-wysihtml5.css" />
+			<link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+			<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'/>
+			</head>
+			
 <body>
 
 <!--Header-part-->
@@ -111,49 +114,63 @@
     </li>
   </ul>
 </div>
-<div id="content">
-  <div id="content-header">
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#">Form elements</a> <a href="#" class="current">insertarPersona</a> </div>
-   
-   
-    <h1><ui:insert name="titulo">Titulo</ui:insert></h1>
-    
-  </div>
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span12">
-        <div class="widget-box">
-          <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
-            <h5>Form wizard &amp; validation</h5>
-          </div>
-          <div class="widget-content nopadding">
-            <form id="form-wizard" class="form-horizontal" method="post">
-              <div id="form-wizard-1" class="step">
-                 
-                
-                <ui:insert name="contenido"></ui:insert>
-                
-                
-              </div>  
-              <div id="submitted"></div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+<!--close-left-menu-stats-sidebar-->
+
+<div id="content" align= "center">
+		<div id="content-header" class="center">
+		  <div id="breadcrumb" align= "center"> <a href="index.xhtml" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="tip-bottom">Form elements</a> <a href="#" class="current">Common elements</a> </div>
+		
+		  <h1><ui:insert name="titulo">Titulo</ui:insert></h1>
+		  
+		 </div>
+
+
+											<div class="container-fluid" align= "center" >
+											  <div class="row-fluid" align= "center">
+											    <div class="span6" align= "center">
+											      <div class="widget-box" align= "center">
+											        <div class="widget-title" align= "center"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+											         
+											          <h5  style="text-align: center"> Personal-info</h5>
+											        </div>
+											        <div class="widget-content nopadding" align= "center">
+											          <form action="#" method="get" class="form-horizontal">
+											            <div class="control-group">
+											            
+											            
+											            <ui:insert name="contenido"></ui:insert>
+											            
+											            
+											            
+											            
+											            
+											            
+											            </div>
+											         
+											          
+											          
+											          
+											            <div class="form-actions">
+											           
+											           
+											           	
+											            <ui:insert name="actions"></ui:insert>
+											           
+											            </div>
+											          </form>
+											        </div>
+											      </div>
+											     
+											 
+ </div>       
+</div>  
+</div> 
 </div>
-<!--Footer-part-->
-<div class="row-fluid">
-  <div id="footer" class="span12"> 2013 &amp; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
-</div>
-<!--end-Footer-part-->
-<script src="resources/js/jquery.min.js"></script> 
-<script src="resources/js/jquery.ui.custom.js"></script> 
-<script src="resources/js/bootstrap.min.js"></script> 
-<script src="resources/js/jquery.validate.js"></script> 
-<script src="resources/js/jquery.wizard.js"></script> 
-<script src="resources/js/matrix.js"></script> 
-<script src="resources/js/matrix.wizard.js"></script>
+
+
+
+
+
 </body>
 </html>
