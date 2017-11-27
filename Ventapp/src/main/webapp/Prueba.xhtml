@@ -2,13 +2,15 @@
       			xmlns:ui="http://java.sun.com/jsf/facelets"
       			xmlns:f="http://java.sun.com/jsf/core"
       			xmlns:h="http://java.sun.com/jsf/html"
-				template="resources/template.xhtml">
+				template="resources/template/blank.xhtml">
 				
-				<ui:define name="titulo">Publicar Propiedad</ui:define>
-				
-				<ui:define name="contenido">
-	
-	<h:form>
+		<ui:define name="titulo">Publicar Propiedad </ui:define>
+			
+		<ui:define name="contenido">
+					
+					
+<h:form>
+					
 
 	<h:panelGrid  colums="3">
 	
@@ -54,7 +56,7 @@
 		</br>
 		
 		<h:commandButton action="listarPropiedades" value="Listado" immediate="true"/>
-		</h:form>
-		</ui:define>
 
+</h:form>
+</ui:define>
 </ui:composition>

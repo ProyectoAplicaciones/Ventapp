@@ -9,15 +9,14 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="tbl_contacto")
+
 public class Contactos {
 
 	@Id
-	@Column(name="ctc_codigo")
+
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigo;
 	
-	@Column(name="ctc_telefono")
 	@Size(min=7, max=9)
 	private String telefono;
 	

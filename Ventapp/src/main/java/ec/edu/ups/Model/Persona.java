@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="tbl_persona")
+
 public class Persona {
 
 	//crear variables
@@ -20,24 +20,21 @@ public class Persona {
 	
 
 	@Size(min=3,max=10)
-	@Column(name="per_nombre")
 	private String nombre;
 	
 
 	@Size(min=3,max=10)
-	@Column(name="per_apellido")
+
 	private String apellido;
 	
 
 	@Size(min=4,max=50)
-	@Column(name="per_direccion")
 	private String direccion;
 	
-	@Column(name="per_email")
+	
 	private String email;
 	
 
-	@Column(name="per_password")
 	private String password;
 	
 	
