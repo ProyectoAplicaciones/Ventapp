@@ -43,9 +43,7 @@ public class Propiedad {
 	private float longuitud;
 	private float latitud;
 	
-	private Category category;
-	//private Categoria categoria;
-
+	
 
 	
 
@@ -144,14 +142,7 @@ public class Propiedad {
 	}
 
 
-	public Category getCategory() {
-		return category;
-	}
 
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
 
 
 	
