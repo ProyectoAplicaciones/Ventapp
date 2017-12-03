@@ -1,0 +1,92 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      			xmlns:ui="http://java.sun.com/jsf/facelets"
+      			xmlns:f="http://java.sun.com/jsf/core"
+      			xmlns:h="http://java.sun.com/jsf/html"
+      			xmlns:o="http://omnifaces.org/ui"
+				template="/templateForm.xhtml">
+			
+		
+			
+			<ui:define name="titulo"> <h1 align="center">Publicar una Propiedad</h1> </ui:define>
+			<ui:define name="contenido">
+			
+			<p></p>
+			
+		<div class="container-fluid">
+		 <div class="control-group">
+		
+         <h:form>
+
+	<h:panelGrid  colums="3">
+	
+	<h2>
+		<h:outputLabel value="Direccion:"  for="direccion"  class = "label label-info"/></h2>
+		<h:inputTextarea  value="#{propiedadController.propiedad.direccion}" id="direccion" class="span11">
+		
+		<f:ajax event="blur" render="direccion"/>
+		</h:inputTextarea>
+		<h:message for="direccion"/>
+		
+		
+		
+		<h3> <h:outputLabel value="Descripcion"  for="descripcion" class = "label label-info" /></h3>
+		<h:inputTextarea value="#{propiedadController.propiedad.descripcion}" id="descripcion" class="span11">
+			<f:ajax event="blur" render="descripcion"/>
+		</h:inputTextarea>
+		<h:message for="descripcion"/>
+		
+		<h:outputLabel value="Estado"  for="estado" class = "label label-info"/>
+		<h:inputTextarea value="#{propiedadController.propiedad.estado}" id="estado"  class="span11">
+		<f:ajax event="blur" render="estado"/>
+		</h:inputTextarea>
+		<h:message for="estado"/>
+		
+		<h:outputLabel value="Tipo"  for="tipo" class = "label label-info"/>
+		<h:inputTextarea value="#{propiedadController.propiedad.tipo}" id="tipo"  class="span11">
+			<f:ajax event="blur" render="tipo"/>
+		</h:inputTextarea>
+		<h:message for="tipo"/>
+		
+		<h:outputLabel value="Costo"  for="costo" class = "label label-info"/>
+		<h:inputTextarea value="#{propiedadController.propiedad.costo}" id="costo"  class="span11"/>
+		<h:message for="costo"/>
+		
+		
+		<h:outputLabel value="Latitud"  for="latitud"  class = "label label-info"/>
+		<h:inputTextarea value="#{propiedadController.propiedad.latitud}" id="latitud"  class="span11"/>
+		<h:message for="latitud"/>
+		
+		<h:outputLabel value="Longuitud"  for="longuitud" class = "label label-info"/>
+		<h:inputTextarea value="#{propiedadController.propiedad.longuitud}" id="longuitud" class="span11" />
+		<h:message for="longuitud"/>
+		
+		<h:outputLabel value=" Url video:"  for="video" class = "label label-info"/>
+		<h:inputTextarea value="#{propiedadController.propiedad.urlVideo}" id="video" class="span11"  />
+		<h:message for="video"/>
+		
+		<h:commandButton action="#{propiedadController.guardar()}" value="Guardar" class="btn btn-block btn-success btn-lg">
+		
+			<f:ajax  execute="@form"  render="@form"/> 
+		
+		</h:commandButton>
+	
+		</h:panelGrid>
+		<br>
+		</br>
+		
+		
+		 <div class="form-actions">
+		 
+		 
+		<h:commandButton action="listarPropiedades" value="Listado" immediate="true"/>
+		
+		</div>
+		</h:form>
+			
+			
+		</div>
+		</div>
+		
+		</ui:define>
+</ui:composition>
+
