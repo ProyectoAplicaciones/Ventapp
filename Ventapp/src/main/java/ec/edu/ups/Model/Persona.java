@@ -2,9 +2,9 @@ package ec.edu.ups.Model;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.annotation.ManagedBean;
 import javax.persistence.CascadeType;
+import javax.annotation.ManagedBean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,25 +30,23 @@ public class Persona {
 	
 
 	@Size(min=3,max=10)
-	@Column(name="per_nombre")
 	private String nombre;
 	
 
 	@Size(min=3,max=10)
-	@Column(name="per_apellido")
+
 	private String apellido;
 	
 
 	@Size(min=4,max=50)
-	@Column(name="per_direccion")
 	private String direccion;
 	
 	
 	@Column(name="per_email")
+
 	private String email;
 	
 
-	@Column(name="per_password")
 	private String password;
 	
 	@OneToMany(cascade= {CascadeType.ALL} , fetch=FetchType.EAGER)
