@@ -24,7 +24,6 @@ public class PersonaController {
 	@PostConstruct
 	public void Int() {
 		persona = new Persona();
-		persona.addTelefono(new telefono());
 		loadPersona();
 	}
 
@@ -56,6 +55,7 @@ public class PersonaController {
 		System.err.println(persona);
 		try {
 		personaDao.guardar(persona);
+		return "index.xhtml";
 		}catch(Exception e){
 			
 		}
@@ -90,9 +90,5 @@ public class PersonaController {
 		return null; 
 	}
 	
-	public String addTelefono() {
-		persona.addTelefono(new telefono());
-		return null;
-	}
-	
+
 }

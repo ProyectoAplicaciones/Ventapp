@@ -35,8 +35,9 @@ public class PropiedadController {
 		
 		propiedadDao.guardar(propiedad);
 		
-		
+		propiedad =new Propiedad();
 		return null;
+		
 	}
 	
 	public String eliminar(int codigo) {

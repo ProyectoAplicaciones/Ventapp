@@ -1,5 +1,5 @@
 
-/*
+
 package ec.edu.ups.Dao;
 
 import java.util.List;
@@ -62,4 +62,4 @@ public class ContactoDao {
 			actualizar(con);
 		}
 	}
-}*/
+}

@@ -49,9 +49,6 @@ public class Persona {
 
 	private String password;
 	
-	@OneToMany(cascade= {CascadeType.ALL} , fetch=FetchType.EAGER)
-	@JoinColumn(name="persona", referencedColumnName="per_codigo")
-	private List<telefono> telefonos;
 	
 	public int getCodigo() {
 		return codigo;
@@ -89,27 +86,15 @@ public class Persona {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public List<telefono> getTelefonos() {
-		return telefonos;
-	}
-	public void setTelefonos(List<telefono> telefonos) {
-		this.telefonos = telefonos;
-	}
 	
 	
-	public void addTelefono(telefono telefono) {
-		if(telefonos==null) {
-			telefonos = new ArrayList<>();
-				
-		}
-		telefonos.add(telefono);
-	}
 	
 	@Override
 	public String toString() {
 		return "Persona [codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion="
-				+ direccion + ", email=" + email + ", password=" + password + ", telefonos=" + telefonos + "]";
+				+ direccion + ", email=" + email + ", password=" + password + ", telefonos=" +  "]";
 	}
+	
 	
 	
 	
