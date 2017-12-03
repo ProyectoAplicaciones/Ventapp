@@ -77,7 +77,7 @@ public class PersonaController {
 	}
 	public String loadDatosEditar(int codigo) {
 		persona = personaDao.leer(codigo);
-		return "editarPersona";
+		return null;
 	}
 	
 	public String eliminarDatos(int codigo) {
