@@ -7,21 +7,29 @@
 <h:head></h:head> 
 
 <body> 
-	<h:form>
-   	
-   	
-   	
+
+	<div id="loginbox"> 		
+				<h:form>
+			   	
+			   	
+			   	
+			 
+					<h:outputLabel value="Email:"  for="Email" class=" "/>
+					<h:inputText value="#{login.email}" id="Email" />
+					<h:message for="Email"/>
+					
+					<h:outputLabel value="pass"  for="pass"/>
+					<h:inputSecret value="#{login.pass}" id="pass" />
+					<h:message for="pass"/>
+			   	
+					<h:commandButton action="#{login.submit()}" value="Login" />
+					
+					<p>
+					</p>
+				
+ 			</h:form>
  
-	<h:outputLabel value="Email:"  for="Email"/>
-		<h:inputText value="#{login.email}" id="Email" />
-		<h:message for="Email"/>
-		
-		<h:outputLabel value="pass"  for="pass"/>
-		<h:inputSecret value="#{login.pass}" id="pass" />
-		<h:message for="pass"/>
-   	
-		<h:commandButton action="#{login.submit()}" value="Login" />
-	
- </h:form>
+ 
+ </div>
 </body> 
 </html>

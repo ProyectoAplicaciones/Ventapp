@@ -7,13 +7,13 @@
 <title>	WELCOME TO VENTAPP </title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
-<link rel="stylesheet" href="css/fullcalendar.css" />
-<link rel="stylesheet" href="css/matrix-style.css" />
-<link rel="stylesheet" href="css/matrix-media.css" />
-<link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
-<link rel="stylesheet" href="css/jquery.gritter.css" />
+<link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+<link rel="stylesheet" href="resources/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="resources/css/fullcalendar.css" />
+<link rel="stylesheet" href="resources/css/matrix-style.css" />
+<link rel="stylesheet" href="resources/css/matrix-media.css" />
+<link href="resources/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" href="/resources/css/jquery.gritter.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'/>
 </head>
 <body>
@@ -77,7 +77,7 @@
     
     <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Publicar</span> <span class="label label-important">3</span></a>
       <ul>
-        <li><a href="form.xhtml">Propiedad</a></li>
+        <li><a href="templateForm.xhtml">Propiedad</a></li>
       </ul>
     </li>
     <li><a href="buttons.xhtml"><i class="icon icon-tint"></i> <span>Categorias</span></a></li>
@@ -125,6 +125,7 @@
     <div id="breadcrumb"> <a href="index.xhtml" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
   </div>
 <!--End-breadcrumbs-->
+	<h1><ui:insert name="titulo">Titulo</ui:insert></h1>
 
 <!--Action boxes-->
   <div class="container-fluid">
@@ -149,117 +150,7 @@
     <hr/>
     
     
-    
-    <ui:insert name="contenido"> contenido del index </ui:insert>
- 
- 
- 
- 	
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span12">
-        <div class="widget-box">
-          <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
-            <h5>Form wizard &amp; validation</h5>
-          </div>
-          <div class="box-body">
-            
-                 
-                 
-         <h:form  class="form-horizontal">
-            <div class="control-group">
-            
-            
-              <label class="control-label">Nombre :</label>
-              <div class="controls">
-                <h:inputText class="span11" value="" />
-                
-                  <ui:insert name="contenido"> contenido </ui:insert>
-                
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label">Description :</label>
-              <div class="controls">
-              	<h:inputText class="span11" value="#{sectorController.sector.descripcion}" />
-              	
-              	 <ui:insert name="contenido2"> contenido2 </ui:insert>
-              	
-              	
-              	
-              </div>
-            </div>
-            <div class="form-actions">
-            
-            
-            	 <ui:insert name="botones"> aqui va los botones guardar eliminar editar </ui:insert>
-            	 
-            	 
-			<h:commandButton class="btn btn-success" value="GUARDAR" action="#{sectorController.guardarSector()}"/>	
-			
-			
-            </div>
-            
-            <div class="widget-box">
-          <div class="widget-title">
-            <h5> Registro </h5>
-          </div>
-          
-          <div class="widget-content nopadding">
-            <h:dataTable class="table table-bordered table-striped" var="sec" value="#{sectorController.listSectores}" styleClass="employeeTable"
-					         headerClass="employeeTableHeader"
-					         rowClasses="employeeTableOddRow,employeeTableEvenRow"  width="100%" align="center">
-							<h:column>
-							<center>
-							<f:facet name="header">Codigo</f:facet>
-							#{sec.id}
-							</center>
-							</h:column>
-							
-							<h:column>
-							<center>
-							<f:facet name="header">Nombre</f:facet>
-							#{sec.nombre}
-							</center>
-							</h:column>
-							<h:column>
-							<center>
-							<f:facet name="header">DDescripcion</f:facet>
-							#{sec.descripcion}
-							</center>
-							</h:column>
-							<h:column>
-							<center>
-							<f:facet name="header">Editar</f:facet>
-							<h:commandButton class="btn btn-primary" value="Editar" action="#{sectorController.actualizarSector(sec.id)}"/>
-							</center>
-							</h:column>
-							<h:column>
-							<center>
-							<f:facet name="header">Eliminar</f:facet>
-							<h:commandButton value="Eliminar" class="btn btn-danger" action="#{sectorController.eliminarSector(sec.id)}"/>
-							</center>
-							</h:column>
-						</h:dataTable>
-			
-          </div>
-          
-        </div>
-            <div>
-        		<h:commandButton class="btn btn-info" value="SALIR" action="index.xhtml"/>
-        	</div>
-            
-</h:form>
-               
-               
-               
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
- 
- 
+   	<ui:insert name="contenido"></ui:insert>
  
  
   </div>
@@ -275,27 +166,27 @@
 
 <!--end-Footer-part-->
 
-<script src="js/excanvas.min.js"></script> 
-<script src="js/jquery.min.js"></script> 
-<script src="js/jquery.ui.custom.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/jquery.flot.min.js"></script> 
-<script src="js/jquery.flot.resize.min.js"></script> 
-<script src="js/jquery.peity.min.js"></script> 
-<script src="js/fullcalendar.min.js"></script> 
-<script src="js/matrix.js"></script> 
-<script src="js/matrix.dashboard.js"></script> 
-<script src="js/jquery.gritter.min.js"></script> 
-<script src="js/matrix.interface.js"></script> 
-<script src="js/matrix.chat.js"></script> 
-<script src="js/jquery.validate.js"></script> 
-<script src="js/matrix.form_validation.js"></script> 
-<script src="js/jquery.wizard.js"></script> 
-<script src="js/jquery.uniform.js"></script> 
-<script src="js/select2.min.js"></script> 
-<script src="js/matrix.popover.js"></script> 
-<script src="js/jquery.dataTables.min.js"></script> 
-<script src="js/matrix.tables.js"></script> 
+<script src="resources/js/excanvas.min.js"></script> 
+<script src="resources/js/jquery.min.js"></script> 
+<script src="resources/js/jquery.ui.custom.js"></script> 
+<script src="resources/js/bootstrap.min.js"></script> 
+<script src="resources/js/jquery.flot.min.js"></script> 
+<script src="resources/js/jquery.flot.resize.min.js"></script> 
+<script src="resources/js/jquery.peity.min.js"></script> 
+<script src="resources/js/fullcalendar.min.js"></script> 
+<script src="resources/js/matrix.js"></script> 
+<script src="resources/js/matrix.dashboard.js"></script> 
+<script src="resources/js/jquery.gritter.min.js"></script> 
+<script src="resources/js/matrix.interface.js"></script> 
+<script src="resources/js/matrix.chat.js"></script> 
+<script src="resources/js/jquery.validate.js"></script> 
+<script src="resources/js/matrix.form_validation.js"></script> 
+<script src="resources/js/jquery.wizard.js"></script> 
+<script src="resources/js/jquery.uniform.js"></script> 
+<script src="resources/js/select2.min.js"></script> 
+<script src="resources/js/matrix.popover.js"></script> 
+<script src="resources/js/jquery.dataTables.min.js"></script> 
+<script src="resources/js/matrix.tables.js"></script> 
 
 <script type="text/javascript">
   // This function is called from the pop-up menus to transfer to

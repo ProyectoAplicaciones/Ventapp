@@ -1,4 +1,5 @@
-package ec.edu.ups.Controller;
+
+/*package ec.edu.ups.Controller;
 
 import java.util.List;
 
@@ -86,3 +87,5 @@ public class ContactoController {
 	}
 	
 }
+
+*/

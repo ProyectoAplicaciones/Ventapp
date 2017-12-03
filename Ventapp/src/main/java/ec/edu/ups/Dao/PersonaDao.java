@@ -58,11 +58,15 @@ public class PersonaDao {
 			query.setParameter(2, persona.getPassword());
 			System.out.println("LLegue user");
 			
+			
+			//Persona p= (Persona) query.getSingleResult();
+			
 			List<Persona> listaUsuario = query.getResultList();
 			if (!listaUsuario.isEmpty()) {
 				usuario = listaUsuario.get(0);
 			}
-			System.out.println("de vuelta" +listaUsuario.size());
+			System.out.println("de vuelta" );
+			
 			return usuario;
 		} catch (Exception e) {
 			throw e;

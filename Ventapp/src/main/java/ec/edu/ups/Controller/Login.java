@@ -13,19 +13,16 @@ import ec.edu.ups.Dao.PersonaDao;
 import ec.edu.ups.Model.Persona;
 
 
-@ManagedBean
-@SessionScoped
+@Named
+@RequestScoped
 public class Login {
 	
 	
 	
-	private Persona persona;
+	private Persona persona; //enUser
 	//@Email
 	private  String email;
 	private String pass;
-	
-	
-	
 	
 	@Inject
 	private PersonaDao personaDao;
@@ -74,17 +71,35 @@ public class Login {
 
 	public String submit () {
 		
-		System.out.println("entro");
 				 persona = personaDao.buscarUser(this.getEmail(),this.getPass());
 				 
 				 if(persona != null)
 	 			{
 				System.out.println("redireccion");
-				return"crearContacto.xhtml";
+				return"index";
 	 			}
 		
 			
 		return "#";
+	}
+	
+	
+	
+	public String login() {
+		
+		Persona usuario;
+		
+		try {
+			usuario = personaDao.buscar(persona);
+			
+			if(usuario != null){
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuario);
+				return "crearContacto";
+			}
+		} catch (Exception e) {
+		}
+		
+		return null;
 	}
 }
 
