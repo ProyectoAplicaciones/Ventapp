@@ -49,6 +49,51 @@ public class PersonaDao {
 		return list;
 	}
 	
+	public Persona buscar(Persona persona) {
+		Persona usuario =null;
+		
+		try {
+			Query query = em.createQuery("SELECT u.email, u.password FROM Persona u WHERE u.email = ?1 and u.password = ?2");
+			query.setParameter(1, persona.getEmail());
+			query.setParameter(2, persona.getPassword());
+			System.out.println("LLegue user");
+			
+			
+			//Persona p= (Persona) query.getSingleResult();
+			
+			List<Persona> listaUsuario = query.getResultList();
+			if (!listaUsuario.isEmpty()) {
+				usuario = listaUsuario.get(0);
+			}
+			System.out.println("de vuelta" );
+			
+			return usuario;
+		} catch (Exception e) {
+			throw e;
+		}
+		
+
+	}
+	
+	
+	public Persona buscarUser(String email, String pass) {
+		
+		
+		try {
+			Query query = em.createQuery("SELECT u FROM Persona u WHERE u.email = :email and u.password = :pass",Persona.class);
+			
+			query.setParameter("email", email);
+			query.setParameter("pass", pass);
+			
+			Persona p= (Persona) query.getSingleResult();
+			if (p!= null)
+				return p;
+			
+		}
+		catch (Exception e){}
+		
+		return null;
+	}
 	public void guardaPersona(Persona per) {
 		Persona p = leer(per.getCodigo());
 		if(p==null) {

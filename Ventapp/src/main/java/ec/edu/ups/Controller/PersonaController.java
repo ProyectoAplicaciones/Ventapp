@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import ec.edu.ups.Dao.PersonaDao;
 import ec.edu.ups.Model.Persona;
+import ec.edu.ups.Model.telefono;
 
 @ManagedBean
 public class PersonaController {
@@ -23,6 +24,7 @@ public class PersonaController {
 	@PostConstruct
 	public void Int() {
 		persona = new Persona();
+		persona.addTelefono(new telefono());
 		loadPersona();
 	}
 
@@ -86,6 +88,11 @@ public class PersonaController {
 			
 		}
 		return null; 
+	}
+	
+	public String addTelefono() {
+		persona.addTelefono(new telefono());
+		return null;
 	}
 	
 }

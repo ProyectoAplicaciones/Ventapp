@@ -1,21 +1,31 @@
 package ec.edu.ups.Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.ManagedBean;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+
+//@ManagedBean
 @Entity
-@Table(name="tbl_persona")
 public class Persona {
 
 	//crear variables
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="per_codigo",length=10)
 	private int codigo;
 	
 
@@ -33,6 +43,7 @@ public class Persona {
 	@Column(name="per_direccion")
 	private String direccion;
 	
+	
 	@Column(name="per_email")
 	private String email;
 	
@@ -40,6 +51,9 @@ public class Persona {
 	@Column(name="per_password")
 	private String password;
 	
+	@OneToMany(cascade= {CascadeType.ALL} , fetch=FetchType.EAGER)
+	@JoinColumn(name="persona", referencedColumnName="per_codigo")
+	private List<telefono> telefonos;
 	
 	public int getCodigo() {
 		return codigo;
@@ -77,10 +91,28 @@ public class Persona {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public List<telefono> getTelefonos() {
+		return telefonos;
+	}
+	public void setTelefonos(List<telefono> telefonos) {
+		this.telefonos = telefonos;
+	}
+	
+	
+	public void addTelefono(telefono telefono) {
+		if(telefonos==null) {
+			telefonos = new ArrayList<>();
+				
+		}
+		telefonos.add(telefono);
+	}
+	
 	@Override
 	public String toString() {
 		return "Persona [codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion="
-				+ direccion + ", email=" + email + ", password=" + password + "]";
-	} 
+				+ direccion + ", email=" + email + ", password=" + password + ", telefonos=" + telefonos + "]";
+	}
+	
+	
 	
 }

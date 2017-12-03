@@ -3,13 +3,16 @@ package ec.edu.ups.Controller;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import ec.edu.ups.Dao.PropiedadDao;
 import ec.edu.ups.Model.Propiedad;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class PropiedadController {
 	
 	private Propiedad propiedad;
@@ -61,11 +64,6 @@ public class PropiedadController {
 	}
 	
 
-	
-	
-	
-	
-	
 	
 	
 	public int getId() {
