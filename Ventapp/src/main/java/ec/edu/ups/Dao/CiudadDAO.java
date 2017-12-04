@@ -40,7 +40,7 @@ public class CiudadDAO {
 			actualizar(ciudad);
 	}
 	
-	public List<Ciudad> getCiudades(){
+	public List<Ciudad> listadoCiudades(){
 		String sql = "SELECT n FROM Ciudad n";
 		Query q =em.createQuery(sql,Ciudad.class );
 		List<Ciudad> ciudades = q.getResultList();
