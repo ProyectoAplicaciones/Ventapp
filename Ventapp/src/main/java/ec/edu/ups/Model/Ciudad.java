@@ -1,5 +1,6 @@
 package ec.edu.ups.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,8 +16,9 @@ public class Ciudad {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigoCiudad;
 	
-	@Size(min=1, max=100)
-	private String descripcionCiudad;
+	@Size(min=1, max=50)
+	@Column(unique=true)
+	private String nombreCiudad;
 
 	public int getCodigoCiudad() {
 		return codigoCiudad;
@@ -26,12 +28,13 @@ public class Ciudad {
 		this.codigoCiudad = codigoCiudad;
 	}
 
-	public String getDescripcionCiudad() {
-		return descripcionCiudad;
+	public String getNombreCiudad() {
+		return nombreCiudad;
 	}
 
-	public void setDescripcionCiudad(String descripcionCiudad) {
-		this.descripcionCiudad = descripcionCiudad;
+	public void setNombreCiudad(String nombreCiudad) {
+		this.nombreCiudad = nombreCiudad;
 	}
+
 	
 }

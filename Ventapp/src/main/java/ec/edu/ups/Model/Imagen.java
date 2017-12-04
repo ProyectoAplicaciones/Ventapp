@@ -1,5 +1,6 @@
 package ec.edu.ups.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,11 +18,23 @@ public class Imagen {
 	private int codigoImagen;
 	
 	@Size(min=1, max=100)
+	@Column(unique=true)
+	private String nombreImagen;
+	
+	@Size(min=1, max=100)
 	private String descripcionImagen;
 	
 	@NotNull
 	private String pathImagen;
 
+	public String getNombreImagen() {
+		return nombreImagen;
+	}
+
+	public void setNombreImagen(String nombreImagen) {
+		this.nombreImagen = nombreImagen;
+	}
+	
 	public int getCodigoImagen() {
 		return codigoImagen;
 	}

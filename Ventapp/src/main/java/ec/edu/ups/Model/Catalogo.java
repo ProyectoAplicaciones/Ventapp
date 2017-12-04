@@ -21,7 +21,8 @@ public class Catalogo {
 	private int codigoCatalogo;
 	
 	@Size(min=1, max=100)
-	private String descripcionCatalogo;
+	@Column(unique=true)
+	private String nombreCatalogo;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="FechaInicioCatalogo")
@@ -31,20 +32,15 @@ public class Catalogo {
 	@Column(name="FechaFinCatalogo")
 	private Date FechaFinCatalogo;
 	
+	@Column(name="estadoCatalogo",length=1)
+	private String estadoCatalogo; 
+	
 	public int getCodigoCatalogo() {
 		return codigoCatalogo;
 	}
 
 	public void setCodigoCatalogo(int codigoCatalogo) {
 		this.codigoCatalogo = codigoCatalogo;
-	}
-
-	public String getDescripcionCatalogo() {
-		return descripcionCatalogo;
-	}
-
-	public void setDescripcionCatalogo(String descripcionCatalogo) {
-		this.descripcionCatalogo = descripcionCatalogo;
 	}
 
 	public Date getFechaInicioCatalogo() {
@@ -71,7 +67,16 @@ public class Catalogo {
 		this.estadoCatalogo = estadoCatalogo;
 	}
 
-	@Column(name="estadoCatalogo",length=1)
-	private String estadoCatalogo; 
+	public String getNombreCatalogo() {
+		return nombreCatalogo;
+	}
+
+	public void setNombreCatalogo(String nombreCatalogo) {
+		this.nombreCatalogo = nombreCatalogo;
+	}
+	
+	
+
+	
 	
 }
