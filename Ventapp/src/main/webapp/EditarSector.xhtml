@@ -2,15 +2,18 @@
       			xmlns:ui="http://java.sun.com/jsf/facelets"
       			xmlns:f="http://java.sun.com/jsf/core"
       			xmlns:h="http://java.sun.com/jsf/html"
-				template="/templateForm.xhtml">
+				template="/resources/templateForm.xhtml">
 			
 		
+			<!-- editar Provincias -->
 			
-			<!-- registrar Provincias -->
 			<ui:define name="titulo">MANTENIMIENTO DE SECTORES</ui:define>
 			<ui:define name="contenido">
+			<f:metadata>
+
+			<f:viewParam name="id" value="#{provinciaControlador.id}" />
 			
-			
+			</f:metadata>
           <h:form  class="form-horizontal">
           	<div class="control-group">
               <label class="control-label">Codigo :</label>
@@ -50,14 +53,11 @@
 				</h:dataTable>
             
             
-            
-            
             <div class="form-actions">
 			<h:commandButton class="btn btn-success" value="GUARDAR" action="#{provinciaControlador.guardar()}"/>	
-			<h:commandButton class="btn btn-success" value="GUARDAR" action="listadoProvincia"/>
+			
             </div>
-            
-            
+        
             <div>
         		<h:commandButton class="btn btn-info" value="SALIR" action="index.xhtml"/>
         	</div>
