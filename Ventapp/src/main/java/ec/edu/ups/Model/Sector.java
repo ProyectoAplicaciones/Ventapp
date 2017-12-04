@@ -11,46 +11,52 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
-@Table(name="Sector")
 public class Sector {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private int id;
+	@Column(name="sec_codigo")
+	private int codigo;
 	
-	@Column(name = "sec_nombre",length = 40)
 	private String nombre;
 	
-	@Column(name = "sec_descripcion",length = 40)
-	private String descripcion;
+	private String alias;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="id", referencedColumnName="sec_codigo")
+	private List<Propiedad> propiedades;
 	
 	
-	public int getId() {
-		return id;
+	
+	public int getCodigo() {
+		return codigo;
 	}
-
-	public void setId(int id) {
-		this.id = id;
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
-
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	public String getDescripcion() {
-		return descripcion;
+	public String getAlias() {
+		return alias;
 	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setAlias(String alias) {
+		this.alias = alias;
 	}
+	public List<Propiedad> getPropiedades() {
+		return propiedades;
+	}
+	public void setPropiedades(List<Propiedad> propiedades) {
+		this.propiedades = propiedades;
+	}
+	
+	
+	
 
 	
 }

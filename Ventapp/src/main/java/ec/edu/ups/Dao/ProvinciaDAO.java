@@ -56,7 +56,7 @@ public class ProvinciaDAO {
 	}
 	
 	public List<Provincia> listaProvincias(){
-		
+		//obtetiene todas las provincias
 		Query query = em.createQuery("SELECT p FROM Provincia p",Provincia.class);
 		List<Provincia> listado = query.getResultList();
 		return listado;

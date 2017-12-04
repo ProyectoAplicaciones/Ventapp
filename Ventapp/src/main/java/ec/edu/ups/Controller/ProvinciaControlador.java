@@ -22,7 +22,6 @@ public class ProvinciaControlador {
 	
 	private Provincia provincia = null;
 	
-	//coleecion de personas para leer la lista
 	private List<Provincia> provincias;
 	
 	private int id;
