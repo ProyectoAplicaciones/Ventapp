@@ -40,7 +40,7 @@ public class CatalogoDAO {
 			actualizar(cat);
 	}
 	
-	public List<Catalogo> getCatalogos(){
+	public List<Catalogo> listadoCatalogos(){
 		String sql = "SELECT n FROM Catalogo n";
 		Query q =em.createQuery(sql,Catalogo.class );
 		List<Catalogo> catalogos = q.getResultList();

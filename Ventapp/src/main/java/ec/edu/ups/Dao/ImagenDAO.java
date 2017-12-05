@@ -38,7 +38,7 @@ public class ImagenDAO {
 			actualizar(im);
 	}
 	
-	public List<Imagen> getImagenes(){
+	public List<Imagen> listadoImagenes(){
 		String sql = "SELECT n FROM Imagen n";
 		Query q =em.createQuery(sql,Imagen.class );
 		List<Imagen> catalogos = q.getResultList();

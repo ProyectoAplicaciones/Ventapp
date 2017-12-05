@@ -1,56 +1,51 @@
 package ec.edu.ups.Controller;
 
 import java.util.List;
-
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import ec.edu.ups.Dao.CiudadDAO;
-import ec.edu.ups.Model.Ciudad;
+import ec.edu.ups.Dao.ImagenDAO;
+import ec.edu.ups.Model.Imagen;
 
-@ManagedBean
-@RequestScoped
-public class CiudadController{
+public class ImagenController {
 
-	private Ciudad ciudad;
-	private List<Ciudad> ciudades;
+	private Imagen Imagen;
+	private List<Imagen> imagenes;
 	private String id;
 	
 	@Inject
-	private CiudadDAO cDAO;
+	private ImagenDAO iDAO;
 	
 	@Inject
     private FacesContext facesContext;
 	
 	@PostConstruct
 	public void init() {
-		ciudad = new Ciudad();
-		loadCiudades();
+		Imagen = new Imagen();
+		loadimagenes();
 	}
 	
 	public String loadDatosEditar(String nombre) {
-		ciudad = cDAO.leer(nombre);
-		return "crearciudad"; //Llama a la pagina para que cargue el objeto persona cargado
+		Imagen = iDAO.leer(nombre);
+		return "crearImagen"; //Llama a la pagina para que cargue el objeto persona cargado
 	}
 	
-	public Ciudad getCiudad() {
-		return ciudad;
+	public Imagen getImagen() {
+		return Imagen;
 	}
 
-	public void setCiudad(Ciudad ciudad) {
-		this.ciudad = ciudad;
+	public void setImagen(Imagen Imagen) {
+		this.Imagen = Imagen;
 	}
 
-	public List<Ciudad> getCiudades() {
-		return ciudades;
+	public List<Imagen> getimagenes() {
+		return imagenes;
 	}
 
-	public void setCiudades(List<Ciudad> ciudades) {
-		this.ciudades = ciudades;
+	public void setimagenes(List<Imagen> imagenes) {
+		this.imagenes = imagenes;
 	}
 
 	public String getId() {
@@ -64,20 +59,20 @@ public class CiudadController{
 
 	@Override
 	public String toString() {
-		return "CiudadController [ciudad=" + ciudad + ", ciudades=" + ciudades + ", id=" + id + ", cDAO=" + cDAO + "]";
+		return "ImagenController [Imagen=" + Imagen + ", imagenes=" + imagenes + ", id=" + id + ", iDAO=" + iDAO + "]";
 	}
 	
 	public String eliminar(String nombre) {//ActionController
 		System.out.println(toString());
 		try{
-			cDAO.borrar(nombre);
-			loadCiudades();
+			iDAO.borrar(nombre);
+			loadimagenes();
 		}catch(Exception e){
 			String errorMessage = getRootErrorMessage(e);
-            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Error al eliminar ciudad especificada.");
+            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Error al eliminar Imagen especificada.");
             facesContext.addMessage(null, m);
 		}
-		return "listadoCiudades";
+		return "listadoimagenes";
 	}
 	
 	public String guardar() {//ActionController
@@ -85,22 +80,22 @@ public class CiudadController{
 		
 		try{
 			if (this.id!=null){
-				cDAO.insertar(ciudad);
+				iDAO.insertar(Imagen);
 			}else{
-				cDAO.actualizar(ciudad);
+				iDAO.actualizar(Imagen);
 			}
-			loadCiudades();
+			loadimagenes();
 		}catch(Exception e){
 			String errorMessage = getRootErrorMessage(e);
             FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "No se pudo guardar.");
             facesContext.addMessage(null, m);
 		}
-		loadCiudades();
-		return "listadoCiudades";
+		loadimagenes();
+		return "listadoimagenes";
 	}
 	
-	private void loadCiudades() {
-		ciudades=cDAO.listadoCiudades();
+	private void loadimagenes() {
+		imagenes=iDAO.listadoImagenes();
 	}
 	
 	private String getRootErrorMessage(Exception e) {

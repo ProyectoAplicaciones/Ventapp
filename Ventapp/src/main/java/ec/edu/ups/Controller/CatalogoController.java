@@ -3,54 +3,50 @@ package ec.edu.ups.Controller;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import ec.edu.ups.Dao.CiudadDAO;
-import ec.edu.ups.Model.Ciudad;
+import ec.edu.ups.Dao.CatalogoDAO;
+import ec.edu.ups.Model.Catalogo;
 
-@ManagedBean
-@RequestScoped
-public class CiudadController{
+public class CatalogoController {
 
-	private Ciudad ciudad;
-	private List<Ciudad> ciudades;
+	private Catalogo catalogo;
+	private List<Catalogo> catalogos;
 	private String id;
 	
 	@Inject
-	private CiudadDAO cDAO;
+	private CatalogoDAO cDAO;
 	
 	@Inject
     private FacesContext facesContext;
 	
 	@PostConstruct
 	public void init() {
-		ciudad = new Ciudad();
-		loadCiudades();
+		catalogo = new Catalogo();
+		loadcatalogos();
 	}
 	
 	public String loadDatosEditar(String nombre) {
-		ciudad = cDAO.leer(nombre);
-		return "crearciudad"; //Llama a la pagina para que cargue el objeto persona cargado
+		catalogo = cDAO.leer(nombre);
+		return "crearcatalogo"; //Llama a la pagina para que cargue el objeto persona cargado
 	}
 	
-	public Ciudad getCiudad() {
-		return ciudad;
+	public Catalogo getcatalogo() {
+		return catalogo;
 	}
 
-	public void setCiudad(Ciudad ciudad) {
-		this.ciudad = ciudad;
+	public void setcatalogo(Catalogo catalogo) {
+		this.catalogo = catalogo;
 	}
 
-	public List<Ciudad> getCiudades() {
-		return ciudades;
+	public List<Catalogo> getcatalogos() {
+		return catalogos;
 	}
 
-	public void setCiudades(List<Ciudad> ciudades) {
-		this.ciudades = ciudades;
+	public void setcatalogos(List<Catalogo> catalogos) {
+		this.catalogos = catalogos;
 	}
 
 	public String getId() {
@@ -64,20 +60,20 @@ public class CiudadController{
 
 	@Override
 	public String toString() {
-		return "CiudadController [ciudad=" + ciudad + ", ciudades=" + ciudades + ", id=" + id + ", cDAO=" + cDAO + "]";
+		return "catalogoController [catalogo=" + catalogo + ", catalogos=" + catalogos + ", id=" + id + ", cDAO=" + cDAO + "]";
 	}
 	
 	public String eliminar(String nombre) {//ActionController
 		System.out.println(toString());
 		try{
 			cDAO.borrar(nombre);
-			loadCiudades();
+			loadcatalogos();
 		}catch(Exception e){
 			String errorMessage = getRootErrorMessage(e);
-            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Error al eliminar ciudad especificada.");
+            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Error al eliminar catalogo especificada.");
             facesContext.addMessage(null, m);
 		}
-		return "listadoCiudades";
+		return "listadocatalogos";
 	}
 	
 	public String guardar() {//ActionController
@@ -85,22 +81,22 @@ public class CiudadController{
 		
 		try{
 			if (this.id!=null){
-				cDAO.insertar(ciudad);
+				cDAO.insertar(catalogo);
 			}else{
-				cDAO.actualizar(ciudad);
+				cDAO.actualizar(catalogo);
 			}
-			loadCiudades();
+			loadcatalogos();
 		}catch(Exception e){
 			String errorMessage = getRootErrorMessage(e);
             FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "No se pudo guardar.");
             facesContext.addMessage(null, m);
 		}
-		loadCiudades();
-		return "listadoCiudades";
+		loadcatalogos();
+		return "listadocatalogos";
 	}
 	
-	private void loadCiudades() {
-		ciudades=cDAO.listadoCiudades();
+	private void loadcatalogos() {
+		catalogos=cDAO.listadoCatalogos();
 	}
 	
 	private String getRootErrorMessage(Exception e) {

@@ -16,7 +16,7 @@ public class Ciudad {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigoCiudad;
 	
-	@Size(min=1, max=50)
+	@Size(min=1, max=100)
 	@Column(unique=true)
 	private String nombreCiudad;
 
