@@ -1,0 +1,163 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      			xmlns:ui="http://java.sun.com/jsf/facelets"
+      			xmlns:f="http://java.sun.com/jsf/core"
+      			xmlns:h="http://java.sun.com/jsf/html"
+				template="templateForm.xhtml">
+				
+				<ui:define name="titulo">CREAR USUARIO</ui:define>
+				<ui:define name="contenido">
+					<h:form class="form-horizontal">
+					
+							<div class="widget-box">
+					          <div class="widget-title">
+					            <h5>CREACION REGISTRO PERSONA </h5>
+					          </div>
+					          
+					          	<div class="control-group">
+				              <label class="control-label">Nombre :</label>
+				              <div class="controls">
+				                <h:inputText class="span11" value="#{personaController.persona.nombre}" />
+				              </div>
+				            </div>
+							
+							<div class="control-group">
+				              <label class="control-label">Apellido :</label>
+				              <div class="controls">
+				                <h:inputText class="span11" value="#{personaController.persona.apellido}" />
+				              </div>
+				            </div>
+							
+							<div class="control-group">
+				              <label class="control-label">Direccion :</label>
+				              <div class="controls">
+				                <h:inputText class="span11" value="#{personaController.persona.direccion}" />
+				              </div>
+				            </div>
+							
+							<div class="control-group">
+				              <label class="control-label">Email :</label>
+				              <div class="controls">
+				                <h:inputText class="span11" value="#{personaController.persona.email}" />
+				              </div>
+				            </div>
+							
+							<div class="control-group">
+				              <label class="control-label">Password :</label>
+				              <div class="controls">
+				                <h:inputText class="span11" value="#{personaController.persona.password}" />
+				              </div>
+				            </div>
+						
+					          	<div class="form-actions">
+								<h:commandButton class="btn btn-success" action="#{personaControlador.addTelefono()}" value="+ telefono" >
+									<f:ajax render="tbltelefonos" execute="@all"></f:ajax>
+								</h:commandButton>
+								</div>
+					            <div class="widget-content nopadding">
+					            	<h:dataTable class="table table-bordered table-striped" value="#{personaController.persona.telefonos}" var="telefono" id="tbltelefonos" 
+					   					 styleClass="employeeTable" headerClass="employeeTableHeader"
+					   					 rowClasses="employeeTableOddRow,employeeTableEvenRow"  width="100%" align="center">
+								<h:column>
+								<center>
+									<f:facet name="header">Codigo</f:facet>
+									<h:inputText class="span11" style="float:left; width:400px; height:20px;"  value="#{telefono.codigo}"/>
+								</center>
+								</h:column>
+								<h:column>
+								<center>
+									<f:facet name="header">Telefono</f:facet>
+									<h:inputText class="span11" style="float:left; width:400px; height:20px;" value="#{telefono.numero}"/>
+								</center>
+								</h:column>
+								<h:column>
+								<center>
+									<f:facet name="header">Tipo</f:facet>
+									<h:inputText class="span11" style="float:left; width:400px; height:20px;" value="#{telefono.tipo}"/>
+								</center>
+								</h:column>
+								<h:column>
+								<center>
+									<f:facet name="header">Editar</f:facet>
+									<h:commandButton class="btn btn-primary" value="Editar"/>
+								</center>
+								</h:column>
+								<h:column>
+								<center>
+									<f:facet name="header">Eliminar</f:facet>
+									<h:commandButton value="Eliminar" class="btn btn-danger" />
+								</center>
+								</h:column>
+							</h:dataTable>
+							
+							<div class="form-actions">
+							<h:commandButton class="btn btn-success" action="#{personaController.guardar()}" value="guardar" />
+							</div>
+					            </div>
+					       </div>
+							
+						<div class="widget-box">
+					          <div class="widget-title">
+					            <h5>REGISTRO DE INGRESO</h5>
+					          </div>
+					           <div class="widget-content nopadding">
+					          		<h:outputText value="no existen" rendered="#{ empty personaController.personas}"/>
+										<br />
+											<h:dataTable class="table table-bordered table-striped" value="#{personaController.personas}" var="persona"
+											 rendered="#{not empty personaController.personas}"
+											 styleClass="employeeTable" headerClass="employeeTableHeader"
+											 rowClasses="employeeTableOddRow,employeeTableEvenRow"  width="100%" align="center">
+												<h:column>
+												<center>
+													<f:facet name="header">Nombre</f:facet>
+													#{persona.nombre}
+												</center>
+												</h:column>
+												<h:column>
+												<center>
+													<f:facet name="header">Apellido</f:facet>
+													#{persona.apellido}
+												</center>
+												</h:column>
+												<h:column>
+												<center>
+													<f:facet name="header">Direccion</f:facet>
+													#{persona.direccion}
+												</center>
+												</h:column>
+												
+												<h:column>
+												<center>
+													<f:facet name="header">Email</f:facet>
+													#{persona.email}
+												</center>
+												</h:column>
+												
+												<h:column>
+												<center>
+													<f:facet name="header">password</f:facet>
+													#{persona.password}
+												</center>
+												</h:column>	
+												<h:column>
+												<center>
+													<f:facet name="header">Editar</f:facet>
+													<h:commandButton class="btn btn-primary" value="EDITAR" action="#{personaController.loadDatosEditar(persona.codigo)}"/>
+												</center>
+												</h:column>
+												<h:column>
+												<center>
+													<f:facet name="header">Eliminar</f:facet>
+													<h:commandButton value="ELIMINAR" class="btn btn-danger" action="#{personaController.eliminarDatos(persona.codigo)}"/>
+												</center>
+												</h:column>
+											</h:dataTable>
+					          
+					           </div>
+					           
+					    </div>
+					   
+					   		
+					</h:form>
+				</ui:define>
+</ui:composition>
+

@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import ec.edu.ups.Dao.PersonaDao;
 import ec.edu.ups.Model.Persona;
+import ec.edu.ups.Model.telefono;
 
 @ManagedBean
 public class PersonaController {
@@ -54,6 +55,7 @@ public class PersonaController {
 		System.err.println(persona);
 		try {
 		personaDao.guardar(persona);
+		return "index.xhtml";
 		}catch(Exception e){
 			
 		}
@@ -75,7 +77,7 @@ public class PersonaController {
 	}
 	public String loadDatosEditar(int codigo) {
 		persona = personaDao.leer(codigo);
-		return "editarPersona";
+		return null;
 	}
 	
 	public String eliminarDatos(int codigo) {
@@ -88,4 +90,5 @@ public class PersonaController {
 		return null; 
 	}
 	
+
 }

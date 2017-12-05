@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+
+		<h:form>
+	<h:panelGrid  colums="3">
+				
+		<h:outputLabel value="rol"  for="rol"/>
+		
+		<h:inputText value="#{rolController.rol.tipo}" id="rol" />
+		
+		<h:message for="rol"/>
+		
+		<h:commandButton action="#{rolController.guardar()}" value="guardar" />
+		</h:panelGrid>
+		
+
+</h:form>
+
+<h:form>
+		<h:dataTable value="#{rolController.listRoles}" var="rol"  rendered="#{not empty rolController.rol}"> <!--Rendered, si quiero se muestre  -->
+		
+		<h:column>
+			<f:facet name="header">Codigo</f:facet>
+			#{rol.codigo}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Rol</f:facet>
+			#{rol.tipo}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Acciones</f:facet>
+			<h:commandButton action="#{rolController.loadDatosEditar(rol.codigo)}" value="Editar" />
+			
+		</h:column>
+		
+				
+		
+		<h:column>
+			<f:facet name="header">Acciones</f:facet>
+			<h:commandButton action="#{rolController.eliminar(rol.codigo)}" value="Borrar" />
+		</h:column>
+	
+		
+	</h:dataTable>
+</h:form>
+
+</body> 
+</html>
