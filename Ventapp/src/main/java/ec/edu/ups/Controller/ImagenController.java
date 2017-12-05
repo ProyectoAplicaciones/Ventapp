@@ -3,12 +3,16 @@ package ec.edu.ups.Controller;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import ec.edu.ups.Dao.ImagenDAO;
 import ec.edu.ups.Model.Imagen;
 
+@ManagedBean
+@RequestScoped
 public class ImagenController {
 
 	private Imagen Imagen;

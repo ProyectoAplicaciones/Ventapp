@@ -12,6 +12,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name="Catalogo")
 public class Catalogo {
@@ -26,10 +28,12 @@ public class Catalogo {
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="FechaInicioCatalogo")
+	@NotEmpty
 	private Date FechaInicioCatalogo;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="FechaFinCatalogo")
+	@NotEmpty
 	private Date FechaFinCatalogo;
 	
 	@Column(name="estadoCatalogo",length=1)

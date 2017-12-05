@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>Editar Ciudad</h:head>
+<f:metadata> <!-- Codigo para leer parametro -->
+	<f:viewParam name="id" value="#{ciudadController.id}"/>
+</f:metadata> 
+<body> 
+	<h:form>
+	<h:messages globalOnly="true"/>
+	<h:inputText value="#{ciudadController.id}" />
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Codigo:" for="codigoCiudad"/>
+			<h:inputText value="#{ciudadController.ciudad.codigoCiudad}" id="codigoCiudad"/>
+			<h:message for="codigoCiudad"/>
+			
+			<h:outputLabel value="Nombre:" for="nombreCiudad"/>
+			<h:inputText value="#{ciudadController.ciudad.nombreCiudad}" id="nombreCiudad"/>
+			<h:message for="nombreCiudad"/>
+			
+			<h:commandButton action="#{ciudadController.guardar()}" value="Guardar"  />
+		</h:panelGrid>
+		
+		<h:commandButton action="listadociudades" value="Listado" immediate="true"/>
+	</h:form>
+</body> 
+</html>

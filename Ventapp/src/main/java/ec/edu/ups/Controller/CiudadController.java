@@ -1,11 +1,10 @@
 package ec.edu.ups.Controller;
 
 import java.util.List;
-
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
@@ -77,7 +76,7 @@ public class CiudadController{
             FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Error al eliminar ciudad especificada.");
             facesContext.addMessage(null, m);
 		}
-		return "listadoCiudades";
+		return "listadociudades";
 	}
 	
 	public String guardar() {//ActionController

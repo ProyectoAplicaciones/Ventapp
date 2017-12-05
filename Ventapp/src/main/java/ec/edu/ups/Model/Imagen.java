@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="Imagen")
@@ -25,6 +26,7 @@ public class Imagen {
 	private String descripcionImagen;
 	
 	@NotNull
+	@NotEmpty
 	private String pathImagen;
 
 	public String getNombreImagen() {
