@@ -1,7 +1,6 @@
 package ec.edu.ups.Model;
 
-import java.io.Serializable;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,14 +10,15 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="Ciudad")
-public class Ciudad implements Serializable{
+public class Ciudad {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigoCiudad;
 	
 	@Size(min=1, max=100)
-	private String descripcionCiudad;
+	@Column(unique=true)
+	private String nombreCiudad;
 
 	public int getCodigoCiudad() {
 		return codigoCiudad;
@@ -28,12 +28,13 @@ public class Ciudad implements Serializable{
 		this.codigoCiudad = codigoCiudad;
 	}
 
-	public String getDescripcionCiudad() {
-		return descripcionCiudad;
+	public String getNombreCiudad() {
+		return nombreCiudad;
 	}
 
-	public void setDescripcionCiudad(String descripcionCiudad) {
-		this.descripcionCiudad = descripcionCiudad;
+	public void setNombreCiudad(String nombreCiudad) {
+		this.nombreCiudad = nombreCiudad;
 	}
+
 	
 }
