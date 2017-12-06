@@ -17,12 +17,14 @@
                 <h:inputText class="span11" value="#{sectorController.sector.nombre}" />
               </div>
             </div>
+            
             <div class="control-group">
               <label class="control-label">Description :</label>
               <div class="controls">
               	<h:inputText class="span11" value="#{sectorController.sector.descripcion}" />
               </div>
             </div>
+            
             <div class="form-actions">
 			<h:commandButton class="btn btn-success" value="GUARDAR" action="#{sectorController.guardarSector()}"/>	
             </div>
@@ -31,6 +33,7 @@
           <div class="widget-title">
             <h5>SECTORES REGISTRADOS</h5>
           </div>
+          
           <div class="widget-content nopadding">
             <h:dataTable class="table table-bordered table-striped" var="sec" value="#{sectorController.listSectores}" styleClass="employeeTable"
 					         headerClass="employeeTableHeader"

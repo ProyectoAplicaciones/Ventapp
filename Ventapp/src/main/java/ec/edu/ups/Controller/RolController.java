@@ -4,12 +4,15 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
 import ec.edu.ups.Dao.RolDao;
-import ec.edu.ups.Model.Propiedad;
 import ec.edu.ups.Model.Rol;
 @ManagedBean
+@RequestScoped
 public class RolController {
 
 	
@@ -29,12 +32,11 @@ public class RolController {
 	}
 	
 	public String guardar() {
-		System.out.println(toString());
-		
+		System.out.println(toString());	
 		rolDao.guardar(rol);
+		rol =new Rol();
 		
-		
-		return "Roles";
+		return null;
 	}
 	
 	public String eliminar(int codigo) {

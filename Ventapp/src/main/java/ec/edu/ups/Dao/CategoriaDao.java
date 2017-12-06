@@ -11,15 +11,12 @@ import ec.edu.ups.Model.Categoria;
 @Stateless
 public class CategoriaDao {
 	
-	
-
-		
 		@Inject 
 		private EntityManager em;
 		
 		
 		public void guardar(Categoria categoria) {
-			Categoria c =leer(categoria.getCodigo());
+			Categoria c = leer(categoria.getCodigo());
 			
 			System.out.println(categoria.getCodigo());
 			if(c==null)

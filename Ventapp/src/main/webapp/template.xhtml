@@ -4,7 +4,7 @@
                    xmlns:f="http://java.sun.com/jsf/core"
                    xmlns:h="http://java.sun.com/jsf/html">
 <head>
-<title>	WELCOME TO VENTAPP </title>
+<title>	VENTAPP </title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
@@ -80,8 +80,10 @@
         <li><a href="Propiedades.xhtml">Propiedad</a></li>
       </ul>
     </li>
-    <li><a href="buttons.xhtml"><i class="icon icon-tint"></i> <span>Categorias</span></a></li>
-    <li><a href="interface.xhtml"><i class="icon icon-pencil"></i> <span>Configuracion</span></a></li>
+    <li class="submenu"><a href="Categorias.xhtml"><i class="icon icon-tint"></i> <span>Categorias</span></a>
+    <ul>  <li><a href="Categorias.xhtml">Agregar categorias</a></li></ul></li>
+    
+    <li><a href="Roles.xhtml"><i class="icon icon-pencil"></i> <span>Roles</span></a></li>
     <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>About us </span> <span class="label label-important">5</span></a>
       <ul>
         <li><a href="index2.xhtml">Dashboard2</a></li>
@@ -132,14 +134,14 @@
       <ul class="quick-actions">
         <li class="bg_lb"> <a href="index.xhtml"> <i class="icon-dashboard"></i> <span class="label label-important">20</span> My Dashboard </a> </li>
         <li class="bg_lg span3"> <a href="charts.xhtml"> <i class="icon-signal"></i> Charts</a> </li>
-        <li class="bg_ly"> <a href="widgets.xhtml"> <i class="icon-inbox"></i><span class="label label-success">101</span> Widgets </a> </li>
-        <li class="bg_lo"> <a href="tables.xhtml"> <i class="icon-th"></i> Tables</a> </li>
-        <li class="bg_ls"> <a href="grid.xhtml"> <i class="icon-fullscreen"></i> Full width</a> </li>
+        <li class="bg_ly"> <a href="resources/widgets.xhtml"> <i class="icon-inbox"></i><span class="label label-success">101</span> Widgets </a> </li>
+        <li class="bg_lo"> <a href="resources/tables.xhtml"> <i class="icon-th"></i> Tables</a> </li>
+        <li class="bg_ls"> <a href="resources/grid.xhtml"> <i class="icon-fullscreen"></i> Full width</a> </li>
         <li class="bg_lo span3"> <a href="form-common.xhtml"> <i class="icon-th-list"></i> Forms</a> </li>
-        <li class="bg_ls"> <a href="buttons.xhtml"> <i class="icon-tint"></i> Buttons</a> </li>
+        <li class="bg_ls"> <a href="resources/buttons.xhtml"> <i class="icon-tint"></i> Buttons</a> </li>
         <li class="bg_lb"> <a href="interface.xhtml"> <i class="icon-pencil"></i>Elements</a> </li>
-        <li class="bg_lg"> <a href="calendar.xhtml"> <i class="icon-calendar"></i> Calendar</a> </li>
-        <li class="bg_lr"> <a href="error404.xhtml"> <i class="icon-info-sign"></i> Error</a> </li>
+        <li class="bg_lg"> <a href="resources/calendar.xhtml"> <i class="icon-calendar"></i> Calendar</a> </li>
+        <li class="bg_lr"> <a href="resources/error404.xhtml"> <i class="icon-info-sign"></i> Error</a> </li>
 
       </ul>
     </div>

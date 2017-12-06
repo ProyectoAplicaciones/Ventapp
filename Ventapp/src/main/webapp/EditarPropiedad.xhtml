@@ -1,19 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
-
-<h:head>  </h:head> 
-<body> 
-	<h1> Editar propiedad</h1>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      			xmlns:ui="http://java.sun.com/jsf/facelets"
+      			xmlns:f="http://java.sun.com/jsf/core"
+      			xmlns:h="http://java.sun.com/jsf/html"
+				template="/templateForm.xhtml">
+			
+		
+			
+			<ui:define name="titulo"><h2 align="center">  Editar una Propiedad</h2> </ui:define>
+			<ui:define name="contenido">
+			
+			<p></p>
+			
+		<div class="container-fluid">
 	
 	<h:form>
 
 	<h:panelGrid  colums="3">
 	
 		<h:outputLabel value="codigo:"  for="codigo"/>
-		<h:inputText value="#{propiedadController.propiedad.codigo}" id="codigo" />
+		<h:inputText value="#{propiedadController.propiedad.codigo}"  id="codigo"/>
 		<h:message for="codigo"/>
 		
 		<h:outputLabel value="direccion:"  for="direccion"/>
@@ -53,7 +58,9 @@
 		
 		</br>
 		
-		<h:commandButton action="#{propiedadController.guardar()}" value="guardar" />
+		<h:commandButton action="#{propiedadController.guardar()}" value="Guardar Cambios" >
+		<f:ajax render="@form"> </f:ajax>
+		</h:commandButton>
 	
 		</h:panelGrid>
 		<br>
@@ -65,6 +72,6 @@
 </h:form>
 
 
-
-</body> 
-</html>
+</div>
+</ui:define>
+</ui:composition>

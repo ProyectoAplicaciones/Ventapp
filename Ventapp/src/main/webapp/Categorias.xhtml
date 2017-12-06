@@ -1,26 +1,79 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      			xmlns:ui="http://java.sun.com/jsf/facelets"
+      			xmlns:f="http://java.sun.com/jsf/core"
+      			xmlns:h="http://java.sun.com/jsf/html"
+				template="/templateForm.xhtml">
+	
+<ui:define name="titulo"><h2 align="center">Categorias</h2></ui:define>
+			
+	<ui:define name="contenido"><p></p>			
+		<div class="container-fluid">		
+			
+				<h:form>
+					<div class="control-group">
+						
+						<h:panelGrid  colums="3">
+									
+							<h:outputLabel value="Categoria"  for="categoria" class = "label label-info"/>
+								 <div class="controls">
+							<h:inputText value="#{categoriaController.categoria.descripcion}" id="categoria"  class="span11"/>
+								</div>
+							<h:message for="categoria"/>
+							
+							<h:commandButton action="#{categoriaController.guardar()}" value="guardar" >
+						<!--  <f:ajax excecute="categoria" render="" ></f:ajax>-->	
+							
+							</h:commandButton>
+							
+							</h:panelGrid>
+							</div>
+					
+			
+			</h:form>
+			</div>
 
-<h:head></h:head> 
-<body> 
+	
+						<h:form>
+								<p></p> <h2 align="center"> Roles actuales</h2>
+								<h:dataTable class="table table-bordered table-striped" headerClass="employeeTableHeader"
+								  rowClasses="employeeTableOddRow,employeeTableEvenRow"  width="100%" align="center"
+								value="#{categoriaController.listCategorias}" var="categoria"  rendered="#{not empty categoriaController.categoria}" id="tblCategory"> <!--Rendered, si quiero se muestre  -->
+								
+								<h:column>
+								<center>
+									<f:facet name="header">Codigo</f:facet>
+									#{categoria.codigo}
+									</center>
+								</h:column>
+								
+								<h:column><center>
+									<f:facet name="header">Categorias</f:facet>
+									#{categoria.descripcion} </center>
+								</h:column>
+								
+								<h:column><center>
+									<f:facet name="header">Acciones</f:facet>
+									<h:commandButton action="#{categoriaController.loadDatosEditar(categoria.codigo)}" value="Editar" />
+									</center>
+								</h:column>
+								
+										
+								
+								<h:column><center>
+									<f:facet name="header">Acciones</f:facet>
+									<h:commandButton action="#{categoriaController.eliminar(categoria.codigo)}" value="Borrar" />
+									</center>
+								</h:column>
+							
+								
+							</h:dataTable>
+							
+						</h:form>
+						
+						
 
-	<h:form>
-	<h:panelGrid  colums="3">
-				
-		<h:outputLabel value="#{categoria}"  for="categoria"/>
-		
-		<h:inputText value="#{categoriaController.categoria.descripcion}" id="categoria" />
-		
-		<h:message for="categoria"/>
-		
-		<h:commandButton action="#{categoriaController.guardar()}" value="guardar" />
-		</h:panelGrid>
-		
 
-</h:form>
 
-</body> 
-</html>
+	
+		</ui:define>
+</ui:composition>

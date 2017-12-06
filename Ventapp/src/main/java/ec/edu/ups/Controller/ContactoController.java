@@ -27,6 +27,7 @@ public class ContactoController {
 		loadContacto();
 	}
 
+	
 	public Contactos getContacto() {
 		return contacto;
 	}

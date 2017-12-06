@@ -8,8 +8,6 @@ import javax.inject.Inject;
 
 import ec.edu.ups.Dao.PersonaDao;
 import ec.edu.ups.Model.Persona;
-import ec.edu.ups.Model.telefono;
-
 @ManagedBean
 public class PersonaController {
 
@@ -52,9 +50,11 @@ public class PersonaController {
 	}
 
 	public String guardar() {
+		
 		System.err.println(persona);
 		try {
 		personaDao.guardar(persona);
+		persona = new Persona();
 		return "index.xhtml";
 		}catch(Exception e){
 			

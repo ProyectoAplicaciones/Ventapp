@@ -1,69 +1,84 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
-
-<h:head></h:head> 
-<body> 
-<h:form>
-<h:outputText value="No existen registros" rendered="#{empty propiedadController.propiedad}"/>
-<br></br>
-	<h:dataTable value="#{propiedadController.listpropiedades}" var="propiedad"  rendered="#{not empty propiedadController.propiedad}"> <!--Rendered, si quiero se muestre  -->
-		
-		<h:column>
-			<f:facet name="header">Codigo</f:facet>
-			#{propiedad.codigo}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Direccion</f:facet>
-			#{propiedad.direccion}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Url video</f:facet>
-			#{propiedad.urlVideo}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Descripcion</f:facet>
-			#{propiedad.descripcion}
-		</h:column>
-		
-		
-	
-		
-		<h:column>
-			<f:facet name="header">Estado</f:facet>
-			#{propiedad.estado}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Tipo</f:facet>
-			#{propiedad.tipo}
-		</h:column>
-		
-		<h:column>
-			<f:facet name="header">Costo</f:facet>
-			#{propiedad.costo}
-		</h:column>
-		
-		
-		<h:column>
-			<f:facet name="header">Acciones</f:facet>
-			<h:commandButton action="#{propiedadController.loadDatosEditar(propiedad.codigo)}" value="Editar" />
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      			xmlns:ui="http://java.sun.com/jsf/facelets"
+      			xmlns:f="http://java.sun.com/jsf/core"
+      			xmlns:h="http://java.sun.com/jsf/html"
+				template="/templateForm.xhtml">
 			
-		</h:column>
 		
-		<h:column>
-			<f:facet name="header">Acciones</f:facet>
-			<h:commandButton action="#{propiedadController.eliminar(propiedad.codigo)}" value="Borrar" />
-		</h:column>
-	
+			
+			<ui:define name="titulo"><h2 align="center">  Lista de  Propiedades Publicadas </h2> </ui:define>
+			<ui:define name="contenido"><p></p>
+			
+			
+			
+		<div class="container-fluid">
 		
-	</h:dataTable>
-	<h:commandButton action="EditarPropiedad" value="Agregar propiedad" />
-</h:form>
-</body> 
-</html>
+									<h:form>
+									
+									<h:outputText
+									 value="No existen registros" rendered="#{empty propiedadController.propiedad}" />
+									<br></br>
+									
+									
+										<h:dataTable  class="table table-bordered table-striped" id ="tblRol" headerClass="employeeTableHeader"
+									         rowClasses="employeeTableOddRow,employeeTableEvenRow"  width="100%" align="center"
+										value="#{propiedadController.listpropiedades}" var="propiedad"  rendered="#{not empty propiedadController.propiedad}"> <!--Rendered, si quiero se muestre  -->
+											
+											<h:column><center>
+												<f:facet name="header">Codigo</f:facet>
+												#{propiedad.codigo}</center>
+											</h:column>
+											
+											<h:column><center>
+												<f:facet name="header">Direccion</f:facet>
+												#{propiedad.direccion}</center>
+											</h:column>
+											
+											<h:column> <center>
+												<f:facet name="header">Url video</f:facet>
+												#{propiedad.urlVideo}</center>
+											</h:column>
+											
+											<h:column><center>
+												<f:facet name="header">Descripcion</f:facet>
+												#{propiedad.descripcion}</center>
+											</h:column>
+											
+											<h:column><center>
+												<f:facet name="header">Estado</f:facet>
+												#{propiedad.estado}</center>
+											</h:column>
+											
+											<h:column><center>
+												<f:facet name="header">Tipo</f:facet>
+												#{propiedad.tipo}</center>
+											</h:column>
+											
+											<h:column><center>
+												<f:facet name="header">Costo</f:facet>
+												#{propiedad.costo}</center>
+											</h:column>
+											
+											
+											<h:column><center>
+												<f:facet name="header">Acciones</f:facet>
+												<h:commandButton action="#{propiedadController.loadDatosEditar(propiedad.codigo)}" value="Editar"   class = "btn btn-warning"/>
+												</center>
+											</h:column>
+											
+											<h:column><center>
+												<f:facet name="header">Acciones</f:facet>
+												<h:commandButton action="#{propiedadController.eliminar(propiedad.codigo)}" value="Borrar" class = "btn btn-danger" />
+												</center>
+											</h:column>
+										
+											
+										</h:dataTable>
+										<h:commandButton action="Propiedades" value="Agregar propiedad"  class = "btn btn-primary" />
+										
+										
+										</h:form>
+										
+	</div>
+	</ui:define>
+	</ui:composition>

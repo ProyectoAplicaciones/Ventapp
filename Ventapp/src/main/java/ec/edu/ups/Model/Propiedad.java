@@ -12,9 +12,10 @@ import javax.validation.constraints.Size;
 
 
 @Entity
-@Table(name="Propiedades")
 public class Propiedad {
 	
+
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -142,6 +143,12 @@ public class Propiedad {
 	}
 
 
+	@Override
+	public String toString() {
+		return "Propiedad [codigo=" + codigo + ", direccion=" + direccion + ", urlVideo=" + urlVideo + ", descripcion="
+				+ descripcion + ", estado=" + estado + ", tipo=" + tipo + ", costo=" + costo + ", longuitud="
+				+ longuitud + ", latitud=" + latitud + "]";
+	}
 
 
 

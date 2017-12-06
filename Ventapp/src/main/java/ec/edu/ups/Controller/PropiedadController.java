@@ -4,15 +4,19 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.hibernate.validator.internal.util.privilegedactions.LoadClass;
 
 import ec.edu.ups.Dao.PropiedadDao;
 import ec.edu.ups.Model.Propiedad;
 
-@Named
-@RequestScoped
+@ManagedBean
+@javax.faces.bean.RequestScoped
 public class PropiedadController {
 	
 	private Propiedad propiedad;
@@ -33,10 +37,12 @@ public class PropiedadController {
 	public String guardar() {
 		System.out.println(toString());
 		
+		System.out.println("datos "+propiedad);
 		propiedadDao.guardar(propiedad);
 		
 		propiedad =new Propiedad();
 		return null;
+		
 		
 	}
 	
@@ -58,13 +64,31 @@ public class PropiedadController {
 		return"listarPropiedades";
 	}
 	
+	public String editar() {
+	
+		
+		propiedadDao.actualizar(propiedad);
+			
+		
+			loadPropiedades();
+		
+			
+		
+		return "listarPropiedades";
+	
+	
+	}
+	
 	public String loadDatosEditar(int codigo) {
 		
 		propiedad =propiedadDao.leer(codigo);
 		return"EditarPropiedad";
 	}
 	
-
+	public void setId(int id) {
+		this.id = id;	
+	loadDatosEditar(id);
+	}
 	
 	
 	public int getId() {
@@ -72,11 +96,7 @@ public class PropiedadController {
 	}
 
 
-	public void setId(int id) {
-		this.id = id;
-		
-	loadDatosEditar(id);
-	}
+	
 
 
 	public List<Propiedad> getListpropiedades() {

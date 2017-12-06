@@ -3,7 +3,7 @@
       			   xmlns:ui="http://java.sun.com/jsf/facelets"
                    xmlns:f="http://java.sun.com/jsf/core"
                    xmlns:h="http://java.sun.com/jsf/html">
-<head>
+<h:head>
 <title>	WELCOME TO VENTAPP </title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,7 +15,7 @@
 <link href="resources/font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link rel="stylesheet" href="/resources/css/jquery.gritter.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'/>
-</head>
+</h:head>
 <body>
 
 <!--Header-part-->
@@ -77,10 +77,12 @@
     
     <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Publicar</span> <span class="label label-important">3</span></a>
       <ul>
-        <li><a href="templateForm.xhtml">Propiedad</a></li>
+        <li><a href="Propiedades.xhtml">Propiedad</a></li>
       </ul>
     </li>
-    <li><a href="buttons.xhtml"><i class="icon icon-tint"></i> <span>Categorias</span></a></li>
+    <li><a href="Categorias.xhtml"><i class="icon icon-tint"></i> <span>Categorias</span></a>
+    	  <ul>  <li><a href="Categorias.xhtml">Agregar categorias</a></li></ul>
+    </li>
     <li><a href="interface.xhtml"><i class="icon icon-pencil"></i> <span>Configuracion</span></a></li>
     <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>About us </span> <span class="label label-important">5</span></a>
       <ul>
@@ -129,6 +131,7 @@
 
 <!--Action boxes-->
   <div class="container-fluid">
+    <!--Action
     <div class="quick-actions_homepage">
       <ul class="quick-actions">
         <li class="bg_lb"> <a href="index.xhtml"> <i class="icon-dashboard"></i> <span class="label label-important">20</span> My Dashboard </a> </li>
@@ -143,7 +146,7 @@
         <li class="bg_lr"> <a href="error404.xhtml"> <i class="icon-info-sign"></i> Error</a> </li>
 
       </ul>
-    </div>
+    </div>-->
 <!--End-Action boxes-->    
 
 

@@ -20,7 +20,7 @@ public class Login {
 	
 	
 	private Persona persona; //enUser
-	//@Email
+	@Email
 	private  String email;
 	private String pass;
 	

@@ -10,7 +10,11 @@ import javax.persistence.Query;
 import ec.edu.ups.Model.Propiedad;
 
 
-
+/*
+ * 
+ * Ejb stateles sin estado hace su pedido y se 
+ * libera recurso automatica y controla la atomicidad en la DB.
+ */
 @Stateless
 public class PropiedadDao {
 	
@@ -58,6 +62,24 @@ public class PropiedadDao {
 		System.out.println(listado.size());
 		return listado;
 		
+	}
+	
+	
+	public boolean update(Propiedad propiedad) {
+		
+		System.out.println("act: "+propiedad.toString());
+		Propiedad p = em.find(Propiedad.class, propiedad.getCodigo());
+		System.out.println("recup: "+p.toString());
+		p.setCosto(propiedad.getCosto());
+		p.setDescripcion(propiedad.getDescripcion());
+		p.setDireccion(propiedad.getDireccion());
+		p.setEstado(propiedad.getEstado());
+		p.setTipo(propiedad.getTipo());
+		p.setUrlVideo(propiedad.getUrlVideo());
+		System.out.println("antes up: "+p.toString());
+		em.merge(p);
+		System.out.println("terminado");
+		return true;
 	}
 	
 }
