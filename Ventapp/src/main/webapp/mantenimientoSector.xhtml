@@ -2,78 +2,59 @@
       			xmlns:ui="http://java.sun.com/jsf/facelets"
       			xmlns:f="http://java.sun.com/jsf/core"
       			xmlns:h="http://java.sun.com/jsf/html"
-				template="/templateForm.xhtml">
+				template="templateForm.xhtml">
 			
 		
 			
 			<ui:define name="titulo">MANTENIMIENTO DE SECTORES</ui:define>
 			<ui:define name="contenido">
-			
-			
           <h:form  class="form-horizontal">
+          	<div class="control-group">
+              <label class="control-label">Codigo :</label>
+              <div class="controls">
+                <h:inputText class="span11" value="#{provinciaControlador.provincia.codigo}" />
+              </div>
+            </div>
             <div class="control-group">
               <label class="control-label">Nombre :</label>
               <div class="controls">
-                <h:inputText class="span11" value="#{sectorController.sector.nombre}" />
+                <h:inputText class="span11" value="#{provinciaControlador.provincia.nombre}" />
               </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label">Alias :</label>
+              <div class="controls">
+              	<h:inputText class="span11" value="#{provinciaControlador.provincia.alias}" />
+              </div>
+            </div>
+            <div class="form-actions">
+			<h:commandButton class="btn btn-success" value="AGREGAR SECTOR" action="#{provinciaControlador.agregaSector()}"/>	
             </div>
             
-            <div class="control-group">
-              <label class="control-label">Description :</label>
-              <div class="controls">
-              	<h:inputText class="span11" value="#{sectorController.sector.descripcion}" />
-              </div>
-            </div>
+            <h:dataTable value="#{provinciaControlador.provincia.sectores}" var="sector">
+
+				<h:column>
+				 <f:facet name="header">Nombre</f:facet>
+				 <h:inputText value="#{sector.nombre}" />
+				</h:column>
+				
+				<h:column>
+				 <f:facet name="header">Alias</f:facet>
+				 <h:inputText value="#{sector.alias}" />
+				</h:column>
+				
+				
+				</h:dataTable>
+            
+            
+            
             
             <div class="form-actions">
-			<h:commandButton class="btn btn-success" value="GUARDAR" action="#{sectorController.guardarSector()}"/>	
+			<h:commandButton class="btn btn-success" value="GUARDAR" action="#{provinciaControlador.guardar()}"/>	
+			<h:commandButton class="btn btn-success" value="LISTADO" action="listadoProvincia"/>
             </div>
             
-            <div class="widget-box">
-          <div class="widget-title">
-            <h5>SECTORES REGISTRADOS</h5>
-          </div>
-          
-          <div class="widget-content nopadding">
-            <h:dataTable class="table table-bordered table-striped" var="sec" value="#{sectorController.listSectores}" styleClass="employeeTable"
-					         headerClass="employeeTableHeader"
-					         rowClasses="employeeTableOddRow,employeeTableEvenRow"  width="100%" align="center">
-							<h:column>
-							<center>
-							<f:facet name="header">Codigo</f:facet>
-							#{sec.id}
-							</center>
-							</h:column>
-							
-							<h:column>
-							<center>
-							<f:facet name="header">Nombre</f:facet>
-							#{sec.nombre}
-							</center>
-							</h:column>
-							<h:column>
-							<center>
-							<f:facet name="header">DDescripcion</f:facet>
-							#{sec.descripcion}
-							</center>
-							</h:column>
-							<h:column>
-							<center>
-							<f:facet name="header">Editar</f:facet>
-							<h:commandButton class="btn btn-primary" value="Editar" action="#{sectorController.actualizarSector(sec.id)}"/>
-							</center>
-							</h:column>
-							<h:column>
-							<center>
-							<f:facet name="header">Eliminar</f:facet>
-							<h:commandButton value="Eliminar" class="btn btn-danger" action="#{sectorController.eliminarSector(sec.id)}"/>
-							</center>
-							</h:column>
-						</h:dataTable>
-			
-          </div>
-          
-        </div>
+            
             <div>
         		<h:commandButton class="btn btn-info" value="SALIR" action="index.xhtml"/>
         	</div>

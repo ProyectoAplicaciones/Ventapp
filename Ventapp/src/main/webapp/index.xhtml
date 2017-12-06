@@ -5,7 +5,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-<ui:composition template="/template.xhtml">
+<ui:composition template="template.xhtml">
 
 <ui:define name="contenido">
 
@@ -14,12 +14,63 @@
       <div class="container-fluid"> <!-- cambiar -->
         <div class="widget-box">
           <div class="widget-title bg_ly" ><span class="icon"><i class="icon-chevron-down"></i></span>
-            <h5> News Posts</h5>
+            <h5> Propiedades publicadas </h5>
           </div>
           
+          <h:dataTable id="tabProv" class="table table-bordered table-striped"  styleClass="employeeTable" headerClass="employeeTableHeader"  rowClasses="employeeTableOddRow,employeeTableEvenRow"  width="100%" align="center"
+	value="#{propiedadController.listpropiedades}" var="propiedad"  rendered="#{not empty propiedadController.propiedad}"> <!--Rendered, si quiero se muestre  -->
+		
+		
+		<h:column>
+			<center>
+			<f:facet name="header">Direccion</f:facet>
+			#{propiedad.direccion}
+			</center>
+		</h:column>
+		
+		<h:column>
+			<center>
+			<f:facet name="header">Url video</f:facet>
+			#{propiedad.urlVideo}
+			</center>
+		</h:column>
+		
+		<h:column>
+			<center>
+			<f:facet name="header">Descripcion</f:facet>
+			#{propiedad.descripcion}
+			</center>
+		</h:column>
+		
+		
+	
+		
+		<h:column>
+		<center>
+			<f:facet name="header">Estado</f:facet>
+			#{propiedad.estado}
+			</center>
+		</h:column>
+		
+		<h:column>
+		<center>
+			<f:facet name="header">Tipo</f:facet>
+			#{propiedad.tipo}
+			</center>
+		</h:column>
+		
+		<h:column>
+		<center>
+			<f:facet name="header">Costo</f:facet>
+			#{propiedad.costo}
+			</center>
+		</h:column>
+		
+	
+		
+	</h:dataTable>
           
-          
-          <div class="widget-content nopadding collapse in" id="collapseG2">
+          <!--  <div class="widget-content nopadding collapse in" id="collapseG2">
             <ul class="recent-posts">
               <li>
                 <div class="user-thumb"> <img width="40" height="40" alt="User" src="/resources/img/demo/av1.jpg"/> </div>
@@ -43,13 +94,56 @@
                 <button class="btn btn-warning btn-mini">View All</button>
               </li>
             </ul>
-          </div>
+          </div>-->
         </div>
         <div class="widget-box">
         
 	</div>
-        
-        
+	<div> 
+        <h:form  class="form-horizontal">
+            <div class="control-group">
+              <label class="control-label">Comenta................. :</label>
+              <div class="controls">
+	              <!--  <textarea class="textarea_editor span11" rows="6" placeholder="Enter text ..." value="#{comentarioController.com.comentario}"></textarea>
+                --><h:inputText class="span11" value="#{comentarioController.com.comentario}" />
+              </div>
+            </div>
+            <div class="form-actions">
+			<h:commandButton class="btn btn-success" value="ENVIAR" action="#{comentarioController.guardarComentario()}">	
+           	<f:ajax render="customers"></f:ajax>
+			</h:commandButton>
+            </div>
+            
+            <div class="widget-box">
+	          <div class="widget-title">
+	            <h5>Comentarios </h5>
+	          </div>
+	          	<div class="widget-content nopadding">
+			            <h:dataTable id="customers" var="com" value="#{comentarioController.listComentarios}" styleClass="employeeTable"
+					         headerClass="employeeTableHeader"
+					         rowClasses="employeeTableOddRow,employeeTableEvenRow"  width="100%" >
+								<h:column>
+								
+								<f:facet name="header">  Comentarios             </f:facet>
+								#{com.comentario}
+								</h:column>
+								<h:column> 
+								<center>
+								<f:facet name="header">Eliminar</f:facet>
+								<h:commandButton class="btn btn-danger"  value="Eliminar" action="#{comentarioController.eliminarComentario(com.id)}"/>
+									</center>
+								</h:column>
+						</h:dataTable>			
+	          </div>
+	          
+        	</div>
+        	
+        	<div>
+        		<h:commandButton class="btn btn-info" value="SALIR" action="index.xhtml"/>
+        	</div>
+            
+          </h:form>
+       </div> 
     <div class="container-fluid">
           <div class="widget-title bg_lo"  > <span class="icon"> <i class="icon-chevron-down"></i> </span>
             <h5>OLd  post</h5>
