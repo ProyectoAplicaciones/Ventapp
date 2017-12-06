@@ -1,6 +1,5 @@
 package ec.edu.ups.Model;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -13,24 +12,32 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name="Catalogo")
-public class Catalogo implements Serializable{
+public class Catalogo {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigoCatalogo;
 	
 	@Size(min=1, max=100)
-	private String descripcionCatalogo;
+	@Column(unique=true)
+	private String nombreCatalogo;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="FechaInicioCatalogo")
+	@NotEmpty
 	private Date FechaInicioCatalogo;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="FechaFinCatalogo")
+	@NotEmpty
 	private Date FechaFinCatalogo;
+	
+	@Column(name="estadoCatalogo",length=1)
+	private String estadoCatalogo; 
 	
 	public int getCodigoCatalogo() {
 		return codigoCatalogo;
@@ -38,14 +45,6 @@ public class Catalogo implements Serializable{
 
 	public void setCodigoCatalogo(int codigoCatalogo) {
 		this.codigoCatalogo = codigoCatalogo;
-	}
-
-	public String getDescripcionCatalogo() {
-		return descripcionCatalogo;
-	}
-
-	public void setDescripcionCatalogo(String descripcionCatalogo) {
-		this.descripcionCatalogo = descripcionCatalogo;
 	}
 
 	public Date getFechaInicioCatalogo() {
@@ -72,7 +71,16 @@ public class Catalogo implements Serializable{
 		this.estadoCatalogo = estadoCatalogo;
 	}
 
-	@Column(name="estadoCatalogo",length=1)
-	private String estadoCatalogo; 
+	public String getNombreCatalogo() {
+		return nombreCatalogo;
+	}
+
+	public void setNombreCatalogo(String nombreCatalogo) {
+		this.nombreCatalogo = nombreCatalogo;
+	}
+	
+	
+
+	
 	
 }
