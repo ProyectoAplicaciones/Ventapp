@@ -11,22 +11,22 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name="Imagen")
+@Table(name="Imagen") //Asignacion de nombre a entidad de datos
 public class Imagen {
 
-	@Id
+	@Id //Generacion de codigo automatica
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigoImagen;
 	
-	@Size(min=1, max=100)
-	@Column(unique=true)
+	@Size(min=1, max=100) //Validacion de tamaño de campo en bd
+	@Column(unique=true) //Especificacion de campo unico
 	private String nombreImagen;
 	
-	@Size(min=1, max=100)
+	@Size(min=1, max=100) //Validacion de tamaño de campo en bd
 	private String descripcionImagen;
 	
-	@NotNull
-	@NotEmpty
+	@NotNull //Validacion de valor no nulo en campo en bd
+	@NotEmpty //Validacion de valor no vacio en campo en bd
 	private String pathImagen;
 
 	public String getNombreImagen() {
