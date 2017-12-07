@@ -9,15 +9,15 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="Ciudad")
+@Table(name="Ciudad")//Asignacion de nombre a entidad de datos
 public class Ciudad {
 
-	@Id
+	@Id //Generacion de codigo automatica
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigoCiudad;
 	
-	@Size(min=1, max=100)
-	@Column(unique=true)
+	@Size(min=1, max=100) //Validacion de tamaño de campo en bd
+	@Column(unique=true) //Especificacion de campo unico
 	private String nombreCiudad;
 
 	public int getCodigoCiudad() {
