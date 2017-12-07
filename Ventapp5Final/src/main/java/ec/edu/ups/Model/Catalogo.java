@@ -15,28 +15,28 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name="Catalogo")
+@Table(name="Catalogo") //Asignacion de nombre a entidad de datos
 public class Catalogo {
 	
-	@Id
+	@Id //Generacion de codigo automatica
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigoCatalogo;
 	
-	@Size(min=1, max=100)
-	@Column(unique=true)
+	@Size(min=1, max=100) //Validacion de tamaño
+	@Column(unique=true) //Especificacion de campo unico
 	private String nombreCatalogo;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name="FechaInicioCatalogo")
-	@NotEmpty
+	@Column(name="FechaInicioCatalogo") //Especificacion de nombre en tabla
+	@NotEmpty //Validacion de valor no vacio en campo en bd
 	private Date FechaInicioCatalogo;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE) //Campo como fecha
 	@Column(name="FechaFinCatalogo")
-	@NotEmpty
+	@NotEmpty //Validacion de valor no vacio en campo en bd
 	private Date FechaFinCatalogo;
 	
-	@Column(name="estadoCatalogo",length=1)
+	@Column(name="estadoCatalogo",length=1) //Validacion de tamaño en bd
 	private String estadoCatalogo; 
 	
 	public int getCodigoCatalogo() {
