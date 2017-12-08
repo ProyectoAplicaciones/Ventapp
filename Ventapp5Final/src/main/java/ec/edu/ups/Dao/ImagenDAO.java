@@ -7,12 +7,16 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import ec.edu.ups.Model.Imagen;
 
-@Stateless
+/*
+ * objeto de acceso a datos de Imagen
+ */
+@Stateless//Especificacion de tipo de EJB
 public class ImagenDAO {
 	
-	@Inject
+	@Inject //Inyección de EntityManager para uso de persistencia de objetos
 	EntityManager em;
 	
+	//Métodos CRUD
 	public void insertar(Imagen img){
 		em.persist(img);
 	}
@@ -30,6 +34,7 @@ public class ImagenDAO {
 		em.remove(leer(nombre));
 	}
 	
+	//Objeto de Negocio Para guardar o actualizar Ciudad
 	public void guardar(Imagen im){
 		Imagen img = leer(im.getNombreImagen());
 		if(img==null)
@@ -38,6 +43,7 @@ public class ImagenDAO {
 			actualizar(im);
 	}
 	
+	//Listado de todos las imágenes
 	public List<Imagen> listadoImagenes(){
 		String sql = "SELECT n FROM Imagen n";
 		Query q =em.createQuery(sql,Imagen.class );
