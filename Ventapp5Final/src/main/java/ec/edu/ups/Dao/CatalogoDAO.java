@@ -9,12 +9,16 @@ import javax.persistence.Query;
 
 import ec.edu.ups.Model.Catalogo;
 
-@Stateless
+/*
+ * objeto de acceso a datos de Catalogo
+ */
+@Stateless //Especificacion de tipo de EJB
 public class CatalogoDAO {
 
-	@Inject
+	@Inject //Inyección de EntityManager para uso de persistencia de objetos
 	EntityManager em;
 	
+	//Métodos CRUD
 	public void insertar(Catalogo cat){
 		em.persist(cat);
 	}
@@ -32,6 +36,7 @@ public class CatalogoDAO {
 		em.remove(leer(nombre));
 	}
 	
+	//Objeto de Negocio Para guardar o actualizar Ciudad
 	public void guardar(Catalogo cat){
 		Catalogo c = leer(cat.getNombreCatalogo());
 		if(c==null)
@@ -40,6 +45,7 @@ public class CatalogoDAO {
 			actualizar(cat);
 	}
 	
+	//Listado de todos los catálogos
 	public List<Catalogo> listadoCatalogos(){
 		String sql = "SELECT n FROM Catalogo n";
 		Query q =em.createQuery(sql,Catalogo.class );
