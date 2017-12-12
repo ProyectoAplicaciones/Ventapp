@@ -11,13 +11,21 @@ import javax.inject.Inject;
 import ec.edu.ups.Dao.ImagenDAO;
 import ec.edu.ups.Model.Imagen;
 
+/*
+ * controlador de Imagen
+ */
 @ManagedBean
 @RequestScoped
 public class ImagenController {
 
+	//bean properties
+	//Instancias
 	private Imagen Imagen;
-	private List<Imagen> imagenes;
+	//id se va a recibir como parametro y sirve como identificador
 	private String id;
+	//Listado
+	private List<Imagen> imagenes;
+	
 	
 	@Inject
 	private ImagenDAO iDAO;
@@ -31,6 +39,9 @@ public class ImagenController {
 		loadimagenes();
 	}
 	
+	/*
+	 * metodo que carga los datos propiedad a editar buscando por el id
+	 */
 	public String loadDatosEditar(String nombre) {
 		Imagen = iDAO.leer(nombre);
 		return "crearImagen"; //Llama a la pagina para que cargue el objeto persona cargado
@@ -97,11 +108,16 @@ public class ImagenController {
 		loadimagenes();
 		return "listadoimagenes";
 	}
-	
+	/*
+	 * metodo para obtener la lista de imagenes
+	 */
 	private void loadimagenes() {
 		imagenes=iDAO.listadoImagenes();
 	}
 	
+	/*
+	 * metodo para mostrar mensaje de validacion
+	 */
 	private String getRootErrorMessage(Exception e) {
         String errorMessage = "Registration failed. See server log for more information";
         if (e == null) {
