@@ -11,13 +11,21 @@ import javax.inject.Inject;
 import ec.edu.ups.Dao.CiudadDAO;
 import ec.edu.ups.Model.Ciudad;
 
+/*
+ * controlador de Ciudad
+ */
 @ManagedBean
 @RequestScoped
 public class CiudadController{
 
+	//bean properties
+	//Instancias
 	private Ciudad ciudad;
-	private List<Ciudad> ciudades;
+	//id se va a recibir como parametro y sirve como identificador
 	private String id;
+	//Listado
+	private List<Ciudad> ciudades;
+	
 	
 	@Inject
 	private CiudadDAO cDAO;
@@ -31,6 +39,9 @@ public class CiudadController{
 		loadCiudades();
 	}
 	
+	/*
+	 * metodo que carga los datos propiedad a editar buscando por el id
+	 */
 	public String loadDatosEditar(String nombre) {
 		ciudad = cDAO.leer(nombre);
 		return "crearciudad"; //Llama a la pagina para que cargue el objeto persona cargado
@@ -98,10 +109,16 @@ public class CiudadController{
 		return "listadoCiudades";
 	}
 	
+	/*
+	 * metodo para obtener la lista de ciudades
+	 */
 	private void loadCiudades() {
 		ciudades=cDAO.listadoCiudades();
 	}
 	
+	/*
+	 * metodo para mostrar mensaje de validacion
+	 */
 	private String getRootErrorMessage(Exception e) {
         String errorMessage = "Registration failed. See server log for more information";
         if (e == null) {
