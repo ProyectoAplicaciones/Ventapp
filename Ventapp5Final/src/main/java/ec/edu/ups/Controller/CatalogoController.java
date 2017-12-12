@@ -11,13 +11,20 @@ import javax.inject.Inject;
 import ec.edu.ups.Dao.CatalogoDAO;
 import ec.edu.ups.Model.Catalogo;
 
+/*
+ * controlador de Catalogo
+ */
 @ManagedBean
 @RequestScoped
 public class CatalogoController {
-
+	
+	//bean properties
+	//Instancias
 	private Catalogo catalogo;
-	private List<Catalogo> catalogos;
+	//id se va a recibir como parametro y sirve como identificador
 	private String id;
+	//Listado
+	private List<Catalogo> catalogos;
 	
 	@Inject
 	private CatalogoDAO cDAO;
@@ -31,6 +38,9 @@ public class CatalogoController {
 		loadcatalogos();
 	}
 	
+	/*
+	 * metodo que carga los datos propiedad a editar buscando por el id
+	 */
 	public String loadDatosEditar(String nombre) {
 		catalogo = cDAO.leer(nombre);
 		return "crearcatalogo"; //Llama a la pagina para que cargue el objeto persona cargado
@@ -98,10 +108,16 @@ public class CatalogoController {
 		return "listadocatalogos";
 	}
 	
+	/*
+	 * metodo para obtener la lista de catalogos
+	 */
 	private void loadcatalogos() {
 		catalogos=cDAO.listadoCatalogos();
 	}
 	
+	/*
+	 * metodo para mostrar mensaje de validacion
+	 */
 	private String getRootErrorMessage(Exception e) {
         String errorMessage = "Registration failed. See server log for more information";
         if (e == null) {
